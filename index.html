@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Gabriel Ahumada - Backend Developer</title>
+    <title>Luis Gabriel Ahumada - Full-Stack Software Engineer (C# / .NET)</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset y variables */
         :root {
-            --primary-color: #14b8a6;
-            --text-color: #1f2937;
+            --primary-color: #0077b5;
+            --text-color: #333333;
             --bg-color: #ffffff;
             --card-bg: #f8fafc;
             --border-color: #e2e8f0;
-            --hover-color: #0d9488;
+            --hover-color: #005582;
         }
 
         * {
@@ -29,7 +29,6 @@
             background: linear-gradient(to bottom, #f8fafc, #ffffff);
         }
 
-        /* Header y Navegación */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
@@ -39,10 +38,13 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        .header-content {
+        .header-content, main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 1rem;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -76,11 +78,8 @@
             color: var(--primary-color);
         }
 
-        /* Contenido Principal */
         main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
+            padding-top: 2rem;
         }
 
         section {
@@ -100,7 +99,6 @@
             margin-bottom: 2rem;
         }
 
-        /* Tarjetas */
         .card {
             background: var(--bg-color);
             border-radius: 0.75rem;
@@ -115,56 +113,85 @@
             transform: translateY(-2px);
         }
 
-        /* Grid para Education y Skills */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
-        /* Estilos específicos para Education */
-        .education-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .education-icon {
-            background-color: rgba(20, 184, 166, 0.1);
-            padding: 0.75rem;
-            border-radius: 50%;
+        .skill-category {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
             color: var(--primary-color);
         }
 
-        .education-details h3 {
-            font-weight: 600;
+        .skill-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .skill-list li {
             margin-bottom: 0.25rem;
         }
 
-        .education-details p {
-            color: #64748b;
-            font-size: 0.875rem;
+        .experience-item {
+            margin-bottom: 2rem;
         }
 
-        /* Botón LinkedIn */
-        .linkedin-button {
-            display: inline-flex;
+        .experience-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .experience-company {
+            font-weight: 500;
+        }
+
+        .experience-date {
+            font-style: italic;
+            color: #64748b;
+        }
+
+        .experience-description {
+            margin-top: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show-more {
             background-color: var(--primary-color);
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 500;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        .linkedin-button:hover {
+        .show-more:hover {
             background-color: var(--hover-color);
         }
 
-        /* Media Queries */
         @media (max-width: 768px) {
             nav {
                 display: none;
@@ -183,6 +210,10 @@
             .grid {
                 grid-template-columns: 1fr;
             }
+
+            .contact-info {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -191,112 +222,145 @@
         <div class="header-content">
             <div class="title-container">
                 <h1>Luis Gabriel Ahumada</h1>
-                <p>Backend Developer | Montreal, QC, Canada</p>
+                <p>Full-Stack Software Engineer (C# / .NET) | Montreal, QC, Canada</p>
             </div>
             <nav>
-                <a href="#about">About Me</a>
-                <a href="#education">Education</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
+                <a href="#summary"><i class="fas fa-user-circle"></i> Summary</a>
+                <a href="#skills"><i class="fas fa-cogs"></i> Skills</a>
+                <a href="#experience"><i class="fas fa-briefcase"></i> Experience</a>
+                <a href="#education"><i class="fas fa-graduation-cap"></i> Education</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">Full Stack Developer with expertise in C# and .NET</p>
+        <section id="summary">
+            <h2 class="section-title"><i class="fas fa-user-circle"></i> Summary</h2>
             <div class="card">
-                <p>I am a highly experienced Full Stack Developer with over 19 years in IT, with a strong track record of designing, building, and maintaining complex systems that drive business success. My expertise spans across the full development lifecycle, from gathering requirements to delivering robust and scalable solutions.</p>
-                <br>
-                <p>I thrive in dynamic environments that demand adaptability and a proactive approach, always ensuring that my contributions align with both technical and business objectives. I am deeply passionate about creating impactful, user-focused systems that provide long-term value.</p>
-                <br>
-                <p>Throughout my career, I have embraced Agile methodologies, including Scrum and DevOps workflows, to lead and manage development cycles effectively. With 7 years of experience in team leadership, I have honed my skills in task management, estimation, and collaboration to deliver projects on time and with high quality.</p>
+                <p>I am a highly motivated and results-driven Senior Software Developer with over 19 years of experience in designing, architecting, and deploying high-performance systems and scalable architectures. My expertise includes Microsoft .NET technologies such as C#, .NET Framework, Core.NET, ASP.NET, and SQL Server, complemented by strong skills in Continuous Integration, Automated Testing, Web Services, and Microsoft Azure cloud computing.</p>
+                <div class="hidden" id="summary-more">
+                    <br>
+                    <p>I excel at leading migration projects, developing cloud-based applications, and implementing best security practices. My proactive approach ensures the successful implementation of robust, data-driven solutions, with expertise in database design, API integration, and front-end development using modern frameworks like ReactJS.</p>
+                    <br>
+                    <p>With a proven track record in international projects, I create and implement scalable software solutions that align with business objectives, leveraging DevOps automation and SDLC methodologies.</p>
+                </div>
+                <button class="show-more" onclick="toggleContent('summary-more', this)">Ver más</button>
             </div>
         </section>
 
-        <section id="education">
-            <h2 class="section-title">Education</h2>
-            <p class="section-subtitle">Academic background and certifications</p>
+        <section id="skills">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Professional Skills</h2>
             <div class="grid">
                 <div class="card">
-                    <div class="education-item">
-                        <div class="education-icon">🎓</div>
-                        <div class="education-details">
-                            <h3>CURN</h3>
-                            <p>Software Engineering</p>
-                            <p>2000 - 2005</p>
-                        </div>
-                    </div>
+                    <h3 class="skill-category"><i class="fas fa-server"></i> Backend Development</h3>
+                    <ul class="skill-list">
+                        <li>C#, VB.NET, ASP.NET, VBScript</li>
+                        <li>Microservices, SOA, Scalable Architectures</li>
+                        <li>RESTful APIs, Web APIs, JSON, XML, XSL, XSLT</li>
+                        <li>Entity Framework, Test-Driven Development (TDD)</li>
+                    </ul>
                 </div>
                 <div class="card">
-                    <div class="education-item">
-                        <div class="education-icon">🏆</div>
-                        <div class="education-details">
-                            <h3>Microsoft Community</h3>
-                            <p>Programming in C#</p>
-                            <p>June 2014 - July 2014</p>
-                        </div>
-                    </div>
+                    <h3 class="skill-category"><i class="fas fa-desktop"></i> Frontend Development (UI/UX)</h3>
+                    <ul class="skill-list">
+                        <li>ReactJS, Angular, Vue.js, Razor, Knockout.js</li>
+                        <li>HTML5, CSS3, Bootstrap</li>
+                    </ul>
                 </div>
                 <div class="card">
-                    <div class="education-item">
-                        <div class="education-icon">🏅</div>
-                        <div class="education-details">
-                            <h3>FCIS</h3>
-                            <p>Scrum Developer</p>
-                            <p>April 2013 - May 2013</p>
-                        </div>
-                    </div>
+                    <h3 class="skill-category"><i class="fas fa-database"></i> Databases</h3>
+                    <ul class="skill-list">
+                        <li>SQL Server, PostgreSQL, MySQL, SQLite</li>
+                        <li>SQL Queries, Data Modeling, NHibernate</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="skill-category"><i class="fas fa-cloud"></i> Cloud Computing & DevOps</h3>
+                    <ul class="skill-list">
+                        <li>Microsoft Azure (App Services, Storage), AWS</li>
+                        <li>Bamboo, Azure DevOps, Git Actions, Jenkins</li>
+                        <li>Powershell, Scripting</li>
+                        <li>Git, TFS, Version Control</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section id="experience">
-            <h2 class="section-title">Experience</h2>
-            <p class="section-subtitle">Professional journey and achievements</p>
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
             <div class="card">
-                <div class="education-item">
-                    <div class="education-icon">💼</div>
-                    <div class="education-details">
-                        <h3>Backend Developer</h3>
-                        <p>Skilled in C# and .NET | Proficient in CI/CD and Microservices Architecture</p>
-                        <p>Current Position</p>
-                    </div>
+                <div class="experience-item">
+                    <h3 class="experience-title">Full-Stack Developer</h3>
+                    <p class="experience-company">Multi Advanced Technological Solutions (Contractor for Immunotec)</p>
+                    <p class="experience-date">August 2023 – Present</p>
+                    <ul class="experience-description">
+                        <li>Architected and developed scalable and secure backend solutions using C# and Microsoft .NET.</li>
+                        <li>Implemented API integration and database design enhancements for optimized performance.</li>
+                        <div class="hidden" id="experience-1-more">
+                            <li>Designed cloud-based solutions on Microsoft Azure, enabling high availability and fault tolerance.</li>
+                            <li>Automated CI/CD pipelines using Bamboo, Jenkins, and Azure DevOps.</li>
+                        </div>
+                    </ul>
+                    <button class="show-more" onclick="toggleContent('experience-1-more', this)">Ver más</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="experience-item">
+                    <h3 class="experience-title">Full-Stack Developer</h3>
+                    <p class="experience-company">Immunotec</p>
+                    <p class="experience-date">June 2020 – September 2023</p>
+                    <ul class="experience-description">
+                        <li>Developed secure microservices and RESTful APIs for healthcare platforms.</li>
+                        <li>Led cloud migration projects, designing scalable architectures in Microsoft Azure.</li>
+                        <div class="hidden" id="experience-2-more">
+                            <li>Optimized SQL queries for improved database performance.</li>
+                            <li>Implemented API security best practices (OAuth, JWT).</li>
+                        </div>
+                    </ul>
+                    <button class="show-more" onclick="toggleContent('experience-2-more', this)">Ver más</button>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
-            <h2 class="section-title">Skills</h2>
-            <p class="section-subtitle">Technical expertise and competencies</p>
-            <div class="grid">
-                <div class="card">
-                    <h3>Backend Development</h3>
-                    <p>C#, .NET, Microservices</p>
-                </div>
-                <div class="card">
-                    <h3>Database</h3>
-                    <p>SQL Server, Entity Framework</p>
-                </div>
-                <div class="card">
-                    <h3>DevOps</h3>
-                    <p>CI/CD, Docker, Azure</p>
-                </div>
+        <section id="education">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+            <div class="card">
+                <ul>
+                    <li><i class="fas fa-university"></i> Bachelor's Degree in Software Engineering</li>
+                    <li><i class="fas fa-certificate"></i> Scrum Developer Certification – FCIS</li>
+                    <li><i class="fas fa-code"></i> Programming in C# – Microsoft Community</li>
+                </ul>
             </div>
         </section>
 
         <section id="contact">
-            <h2 class="section-title">Contact</h2>
-            <p class="section-subtitle">Let's connect and discuss opportunities</p>
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Contact</h2>
             <div class="card">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="linkedin-button">
-                    Connect on LinkedIn
-                </a>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 5146059864</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:luisgabrielahumada@gmail.com">luisgabrielahumada@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/luisgabrielahumada" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
+    <script>
+        function toggleContent(id, button) {
+            const content = document.getElementById(id);
+            content.classList.toggle('hidden');
+            button.textContent = content.classList.contains('hidden') ? 'Ver más' : 'Ver menos';
+        }
+    </script>
 </body>
 </html>
