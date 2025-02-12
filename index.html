@@ -29,15 +29,24 @@
             backdrop-filter: blur(8px);
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
         }
 
         .navbar-brand {
             font-weight: 700;
             color: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar-brand span {
+            font-size: 1.2rem;
         }
 
         .navbar-brand small {
             font-weight: 400;
+            font-size: 0.8rem;
             opacity: 0.8;
         }
 
@@ -45,6 +54,7 @@
             font-weight: 500;
             color: var(--text-color);
             transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
         }
 
         .navbar-nav .nav-link:hover,
@@ -71,6 +81,16 @@
                 padding: 1rem;
                 border-radius: 0.5rem;
                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                margin-top: 0.5rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .navbar-brand span {
+                font-size: 1rem;
+            }
+            .navbar-brand small {
+                font-size: 0.7rem;
             }
         }
 
@@ -148,9 +168,9 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand d-flex flex-column" href="#">
+            <a class="navbar-brand" href="#">
                 <span>Luis Gabriel Ahumada</span>
-                <small class="text-muted d-none d-sm-inline-block">Full-Stack Software Engineer (C# / .NET)</small>
+                <small class="text-muted">Full-Stack Software Engineer (C# / .NET)</small>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -169,7 +189,208 @@
     </nav>
 
     <main class="container my-5">
-        <!-- The rest of the content remains the same -->
+        <section id="summary" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-user-circle"></i> Summary</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p>I am a highly motivated and results-driven Senior Software Developer with over 19 years of experience in designing, architecting, and deploying high-performance systems and scalable architectures. My expertise includes Microsoft .NET technologies such as C#, .NET Framework, Core.NET, ASP.NET, and SQL Server, complemented by strong skills in Continuous Integration, Automated Testing, Web Services, and Microsoft Azure cloud computing.</p>
+                    <div class="collapse" id="summary-more">
+                        <p>I excel at leading migration projects, developing cloud-based applications, and implementing best security practices. My proactive approach ensures the successful implementation of robust, data-driven solutions, with expertise in database design, API integration, and front-end development using modern frameworks like ReactJS.</p>
+                        <p>With a proven track record in international projects, I create and implement scalable software solutions that align with business objectives, leveraging DevOps automation and SDLC methodologies.</p>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#summary-more" aria-expanded="false" aria-controls="summary-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Professional Skills</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="skill-category"><i class="fas fa-server"></i> Backend Development</h3>
+                            <ul class="list-unstyled">
+                                <li>C#, VB.NET, ASP.NET, VBScript</li>
+                                <li>Microservices, SOA, Scalable Architectures</li>
+                                <li>RESTful APIs, Web APIs, JSON, XML, XSL, XSLT</li>
+                                <li>Entity Framework, Test-Driven Development (TDD)</li>
+                                <li>Application Security, Scalable Solutions</li>
+                                <li>.NET Framework, Core.NET</li>
+                                <li>ASP.NET Core, ASP.NET MVC</li>
+                                <li>Dependency Injection, SOLID Principles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="skill-category"><i class="fas fa-desktop"></i> Frontend Development</h3>
+                            <ul class="list-unstyled">
+                                <li>ReactJS, Angular, Vue.js, Razor, Knockout.js</li>
+                                <li>HTML5, CSS3, SASS, Bootstrap</li>
+                                <li>JavaScript, TypeScript</li>
+                                <li>Responsive Web Design</li>
+                                <li>User Experience (UX) & User-Friendly Interfaces</li>
+                                <li>Redux, React Hooks</li>
+                                <li>Webpack, Babel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="skill-category"><i class="fas fa-database"></i> Databases</h3>
+                            <ul class="list-unstyled">
+                                <li>SQL Server, PostgreSQL, MySQL, SQLite</li>
+                                <li>SQL Queries, Data Modeling, NHibernate</li>
+                                <li>Database Design and Optimization</li>
+                                <li>Data Access & Web-Based Solutions</li>
+                                <li>Relational Databases</li>
+                                <li>MongoDB, NoSQL databases</li>
+                                <li>ORM (Object-Relational Mapping)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Full-Stack Developer</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Multi Advanced Technological Solutions (Contractor for Immunotec)</h4>
+                    <p class="card-text"><small class="text-muted">August 2023 – Present</small></p>
+                    <ul>
+                        <li>Architected and developed scalable and secure backend solutions using C# and Microsoft .NET.</li>
+                        <li>Implemented API integration and database design enhancements for optimized performance.</li>
+                    </ul>
+                    <div class="collapse" id="experience-1-more">
+                        <ul>
+                            <li>Designed cloud-based solutions on Microsoft Azure, enabling high availability and fault tolerance.</li>
+                            <li>Automated CI/CD pipelines using Bamboo, Jenkins, and Azure DevOps.</li>
+                            <li>Led migration projects for legacy systems, optimizing SQL queries and improving database efficiency.</li>
+                            <li>Developed Power BI dashboards for data-driven decision-making.</li>
+                            <li>Created technical documentation including API references, system workflows, and best practices.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#experience-1-more" aria-expanded="false" aria-controls="experience-1-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Full-Stack Developer</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Immunotec</h4>
+                    <p class="card-text"><small class="text-muted">June 2020 – September 2023</small></p>
+                    <ul>
+                        <li>Developed secure microservices and RESTful APIs for healthcare platforms.</li>
+                        <li>Led cloud migration projects, designing scalable architectures in Microsoft Azure.</li>
+                    </ul>
+                    <div class="collapse" id="experience-2-more">
+                        <ul>
+                            <li>Optimized SQL queries for improved database performance.</li>
+                            <li>Implemented API security best practices (OAuth, JWT).</li>
+                            <li>Designed Power BI reporting solutions for real-time analytics.</li>
+                            <li>Collaborated with cross-functional teams to deliver high-quality software solutions.</li>
+                            <li>Mentored junior developers and conducted code reviews to maintain code quality.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#experience-2-more" aria-expanded="false" aria-controls="experience-2-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-code-branch"></i> Projects</h2>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-4">
+                            <h3 class="h5">Microservices Architecture with .NET Core</h3>
+                            <p>Developed a scalable microservices architecture using .NET Core, Docker, and Kubernetes. Implemented service discovery, API gateway, and event-driven communication between services.</p>
+                        </li>
+                        <li class="mb-4">
+                            <h3 class="h5">React-based Dashboard Application</h3>
+                            <p>Created a responsive dashboard application using React, Redux, and Material-UI. Integrated with backend APIs and implemented real-time data updates using WebSockets.</p>
+                        </li>
+                        <li class="mb-4">
+                            <h3 class="h5">Azure-based IoT Solution</h3>
+                            <p>Designed and implemented an IoT solution using Azure IoT Hub, Stream Analytics, and Power BI. Developed device simulators and real-time data processing pipelines.</p>
+                        </li>
+                    </ul>
+                    <div class="collapse" id="projects-more">
+                        <ul class="list-unstyled">
+                            <li class="mb-4">
+                                <h3 class="h5">Blockchain-based Supply Chain Management</h3>
+                                <p>Implemented a proof-of-concept supply chain management system using Ethereum blockchain and smart contracts. Developed a web interface for interacting with the blockchain.</p>
+                            </li>
+                            <li class="mb-4">
+                                <h3 class="h5">Machine Learning-based Recommendation Engine</h3>
+                                <p>Created a recommendation engine using machine learning algorithms in Python. Integrated the engine with a .NET Core backend and React frontend for a personalized user experience.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#projects-more" aria-expanded="false" aria-controls="projects-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-university me-2"></i> Bachelor's Degree in Software Engineering</li>
+                        <li><i class="fas fa-certificate me-2"></i> Scrum Developer Certification – FCIS</li>
+                        <li><i class="fas fa-code me-2"></i> Programming in C# – Microsoft Community</li>
+                        <li><i class="fas fa-cloud me-2"></i> Microsoft Certified: Azure Developer Associate</li>
+                        <li><i class="fas fa-shield-alt me-2"></i> Certified Information Systems Security Professional (CISSP)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Contact</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-item">
+                                <i class="fas fa-phone me-2"></i>
+                                <span>+1 5146059864</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope me-2"></i>
+                                <a href="mailto:luisgabrielahumada@gmail.com">luisgabrielahumada@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin me-2"></i>
+                                <a href="https://linkedin.com/in/luisgabrielahumada" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github me-2"></i>
+                                <a href="https://github.com/luisgabrielahumada" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
