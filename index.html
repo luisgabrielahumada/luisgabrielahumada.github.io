@@ -215,6 +215,7 @@
                                 <li>Entity Framework, Test-Driven Development (TDD)</li>
                                 <li>Application Security, Scalable Solutions</li>
                                 <li>.NET Framework, Core.NET</li>
+                                <li>Worker Services, Background Processing</li>
                             </ul>
                         </div>
                     </div>
@@ -224,10 +225,11 @@
                         <div class="card-body">
                             <h3 class="skill-category"><i class="fas fa-desktop"></i> Frontend Development</h3>
                             <ul class="list-unstyled">
-                                <li>ReactJS, Angular, Vue.js, Razor, Knockout.js</li>
-                                <li>HTML5, CSS3, Bootstrap</li>
-                                <li>JavaScript, TypeScript</li>
-                                <li>Responsive Web Design</li>
+                                <li>ReactJS, Angular, Vue.js</li>
+                                <li>ASP.NET MVC with Razor</li>
+                                <li>HTML5, CSS3, JavaScript, jQuery</li>
+                                <li>Bootstrap, Responsive Web Design</li>
+                                <li>TypeScript, Knockout.js</li>
                                 <li>User Experience (UX) & User-Friendly Interfaces</li>
                             </ul>
                         </div>
@@ -375,249 +377,424 @@
         </section>
 
         <section id="projects" class="mb-5">
-            <h2 class="section-title"><i class="fas fa-code-branch"></i> Projects</h2>
-            <div class="row g-4">
-    <div class="col-md-6">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="card-title">ASP.NET Core Microservices</h3>
-                <p class="card-text">Developed a scalable e-commerce platform using microservices architecture with ASP.NET Core.</p>
-                <h4 class="h5 mt-3">Features:</h4>
-                <ul>
-                    <li>API Gateway using Ocelot</li>
-                    <li>Service Discovery with Consul</li>
-                    <li>Message Queue with RabbitMQ</li>
-                    <li>Containerization with Docker</li>
-                </ul>
-                <h4 class="h5 mt-3">Code Snippet:</h4>
-                <pre><code class="language-csharp">
-// API Gateway Configuration
-public class Startup
-{
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddOcelot(Configuration);
-    }
+    <h2 class="section-title"><i class="fas fa-code-branch"></i> Proyectos</h2>
+    
+    <!-- Front-end Projects -->
+    <h3 class="mb-4">Proyectos Front-end</h3>
+    <div class="row g-4 mb-5">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Aplicación React con Integración de API</h4>
+                    <p class="card-text">Desarrollo de una aplicación de panel de control utilizando React y Redux para gestión de estado, con integración de APIs RESTful.</p>
+                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
+                    <p>React, Redux, HTML5, CSS3, Bootstrap</p>
+                    <h5 class="h6 mt-3">Características:</h5>
+                    <ul>
+                        <li>Componentes React reutilizables</li>
+                        <li>Gestión de estado con Redux</li>
+                        <li>Diseño responsivo con Bootstrap</li>
+                        <li>Integración con APIs RESTful</li>
+                    </ul>
+                    <h5 class="h6 mt-3">Ejemplo de Código (Componente React):</h5>
+                    <pre><code class="language-jsx">
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from '../redux/actions/dataActions';
 
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        app.UseOcelot().Wait();
+const Dashboard = () => {
+    const dispatch = useDispatch();
+    const { data, loading, error } = useSelector(state => state.data);
+
+    useEffect(() => {
+        dispatch(fetchData());
+    }, [dispatch]);
+
+    if (loading) return &lt;div&gt;Cargando...&lt;/div&gt;;
+    if (error) return &lt;div&gt;Error: {error}&lt;/div&gt;;
+
+    return (
+        &lt;div className="dashboard"&gt;
+            &lt;h2&gt;Panel de Control&lt;/h2&gt;
+            &lt;div className="row"&gt;
+                {data.map(item => (
+                    &lt;div key={item.id} className="col-md-4 mb-4"&gt;
+                        &lt;div className="card"&gt;
+                            &lt;div className="card-body"&gt;
+                                &lt;h5 className="card-title"&gt;{item.title}&lt;/h5&gt;
+                                &lt;p className="card-text"&gt;{item.description}&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                ))}
+            &lt;/div&gt;
+        &lt;/div&gt;
+    );
+};
+
+export default Dashboard;
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Aplicación Vue.js con Gestión de Estado</h4>
+                    <p class="card-text">Desarrollo de una aplicación de comercio electrónico utilizando Vue.js y Vuex para la gestión del estado de la aplicación.</p>
+                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
+                    <p>Vue.js, Vuex, HTML5, CSS3, Tailwind CSS</p>
+                    <h5 class="h6 mt-3">Características:</h5>
+                    <ul>
+                        <li>Componentes Vue.js reactivos</li>
+                        <li>Gestión de estado centralizada con Vuex</li>
+                        <li>Diseño responsivo con Tailwind CSS</li>
+                        <li>Enrutamiento con Vue Router</li>
+                    </ul>
+                    <h5 class="h6 mt-3">Ejemplo de Código (Componente Vue):</h5>
+                    <pre><code class="language-html">
+&lt;template&gt;
+  &lt;div class="product-list"&gt;
+    &lt;h2 class="text-2xl font-bold mb-4"&gt;Nuestros Productos&lt;/h2&gt;
+    &lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"&gt;
+      &lt;div v-for="product in products" :key="product.id" class="card"&gt;
+        &lt;img :src="product.image" :alt="product.name" class="w-full h-48 object-cover"&gt;
+        &lt;div class="p-4"&gt;
+          &lt;h3 class="text-lg font-semibold"&gt;{{ product.name }}&lt;/h3&gt;
+          &lt;p class="text-gray-600"&gt;{{ product.price | currency }}&lt;/p&gt;
+          &lt;button @click="addToCart(product)" class="btn btn-primary mt-2"&gt;
+            Añadir al Carrito
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { mapState, mapActions } from 'vuex';
+
+export default {
+  computed: {
+    ...mapState(['products'])
+  },
+  methods: {
+    ...mapActions(['addToCart'])
+  },
+  filters: {
+    currency(value) {
+      return `$${value.toFixed(2)}`;
     }
+  }
 }
-                </code></pre>
+&lt;/script&gt;
+                    </code></pre>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="card-title">Payment Gateway Integration</h3>
-                <p class="card-text">Implemented secure payment processing using various payment gateways in an ASP.NET MVC application.</p>
-                <h4 class="h5 mt-3">Features:</h4>
-                <ul>
-                    <li>Integration with multiple payment providers</li>
-                    <li>Secure handling of sensitive data</li>
-                    <li>Asynchronous payment processing</li>
-                </ul>
-                <h4 class="h5 mt-3">Code Snippet:</h4>
-                <pre><code class="language-csharp">
-public class PaymentController : Controller
-{
-    private readonly IPaymentGateway _paymentGateway;
 
-    public PaymentController(IPaymentGateway paymentGateway)
+    <!-- Back-end Projects -->
+    <h3 class="mb-4">Proyectos Back-end</h3>
+    <div class="row g-4 mb-5">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">API RESTful con ASP.NET Core</h4>
+                    <p class="card-text">Desarrollo de una API RESTful robusta utilizando ASP.NET Core, implementando autenticación JWT y documentación con Swagger.</p>
+                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
+                    <p>C#, ASP.NET Core, Entity Framework Core, SQL Server</p>
+                    <h5 class="h6 mt-3">Características:</h5>
+                    <ul>
+                        <li>Arquitectura de microservicios</li>
+                        <li>Autenticación y autorización con JWT</li>
+                        <li>Documentación de API con Swagger</li>
+                        <li>Implementación de patrones Repository y Unit of Work</li>
+                    </ul>
+                    <h5 class="h6 mt-3">Ejemplo de Código (Controlador ASP.NET Core):</h5>
+                    <pre><code class="language-csharp">
+[ApiController]
+[Route("api/[controller]")]
+public class ProductsController : ControllerBase
+{
+    private readonly IProductService _productService;
+    private readonly ILogger&lt;ProductsController&gt; _logger;
+
+    public ProductsController(IProductService productService, ILogger&lt;ProductsController&gt; logger)
     {
-        _paymentGateway = paymentGateway;
+        _productService = productService;
+        _logger = logger;
+    }
+
+    [HttpGet]
+    public async Task&lt;ActionResult&lt;IEnumerable&lt;ProductDto&gt;&gt;&gt; GetProducts([FromQuery] ProductFilterDto filter)
+    {
+        try
+        {
+            var products = await _productService.GetProductsAsync(filter);
+            return Ok(products);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while fetching products");
+            return StatusCode(500, "An error occurred while processing your request.");
+        }
     }
 
     [HttpPost]
-    public async Task<IActionResult> ProcessPayment(PaymentModel model)
+    [Authorize(Roles = "Admin")]
+    public async Task&lt;ActionResult&lt;ProductDto&gt;&gt; CreateProduct(CreateProductDto productDto)
     {
-        var result = await _paymentGateway.ProcessPaymentAsync(model);
-        return Json(result);
-    }
-}
-                </code></pre>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="card-title">Multi-Database ORM Implementation</h3>
-                <p class="card-text">Designed a flexible ORM solution supporting SQL Server, MySQL, and PostgreSQL in a single application.</p>
-                <h4 class="h5 mt-3">Features:</h4>
-                <ul>
-                    <li>Database-agnostic repository pattern</li>
-                    <li>Dynamic query building</li>
-                    <li>Support for multiple database providers</li>
-                </ul>
-                <h4 class="h5 mt-3">Code Snippet:</h4>
-                <pre><code class="language-csharp">
-public class GenericRepository<T> : IRepository<T> where T : class
-{
-    private readonly IDbContext _context;
-
-    public GenericRepository(IDbContext context)
-    {
-        _context = context;
-    }
-
-    public async Task<IEnumerable<T>> GetAllAsync()
-    {
-        return await _context.Set<T>().ToListAsync();
-    }
-
-    // Other CRUD operations...
-}
-                </code></pre>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="card-title">Cloud-Based Monitoring System</h3>
-                <p class="card-text">Developed a real-time monitoring system for distributed applications using Azure services.</p>
-                <h4 class="h5 mt-3">Features:</h4>
-                <ul>
-                    <li>Real-time data processing with Azure Functions</li>
-                    <li>Data visualization with Power BI</li>
-                    <li>Alerting system using Azure Logic Apps</li>
-                </ul>
-                <h4 class="h5 mt-3">Code Snippet:</h4>
-                <pre><code class="language-csharp">
-public static class MonitoringFunction
-{
-    [FunctionName("ProcessTelemetry")]
-    public static async Task Run(
-        [EventHubTrigger("telemetry", Connection = "EventHubConnection")] EventData[] events,
-        [CosmosDB(
-            databaseName: "MonitoringDB",
-            collectionName: "Telemetry",
-            ConnectionStringSetting = "CosmosDBConnection")]
-        IAsyncCollector<dynamic> documentsOut)
-    {
-        foreach (EventData eventData in events)
+        try
         {
-            var telemetry = JsonConvert.DeserializeObject<TelemetryData>(Encoding.UTF8.GetString(eventData.Body.Array));
-            await documentsOut.AddAsync(telemetry);
+            var createdProduct = await _productService.CreateProductAsync(productDto);
+            return CreatedAtAction(nameof(GetProduct), new { id = createdProduct.Id }, createdProduct);
+        }
+        catch (ValidationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error occurred while creating a product");
+            return StatusCode(500, "An error occurred while processing your request.");
         }
     }
+
+    // Otros métodos CRUD...
 }
-                </code></pre>
+                    </code></pre>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="card-title">Hybrid Mobile Application</h3>
-                <p class="card-text">Created a cross-platform mobile app using Xamarin.Forms with a ASP.NET Core backend.</p>
-                <h4 class="h5 mt-3">Features:</h4>
-                <ul>
-                    <li>Shared C# codebase for iOS and Android</li>
-                    <li>RESTful API communication</li>
-                    <li>Offline data synchronization</li>
-                </ul>
-                <h4 class="h5 mt-3">Code Snippet:</h4>
-                <pre><code class="language-csharp">
-public class ApiService : IApiService
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Servicio de Procesamiento en Segundo Plano</h4>
+                    <p class="card-text">Implementación de un servicio de procesamiento en segundo plano utilizando Worker Services de .NET Core para tareas programadas y procesamiento de colas.</p>
+                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
+                    <p>C#, .NET Core Worker Services, RabbitMQ</p>
+                    <h5 class="h6 mt-3">Características:</h5>
+                    <ul>
+                        <li>Procesamiento asíncrono de tareas</li>
+                        <li>Integración con sistema de colas RabbitMQ</li>
+                        <li>Manejo de errores y reintentos</li>
+                        <li>Logging y monitoreo</li>
+                    </ul>
+                    <h5 class="h6 mt-3">Ejemplo de Código (Worker Service):</h5>
+                    <pre><code class="language-csharp">
+public class Worker : BackgroundService
 {
-    private readonly HttpClient _httpClient;
+    private readonly ILogger&lt;Worker&gt; _logger;
+    private readonly IMessageQueueService _messageQueueService;
 
-    public ApiService()
+    public Worker(ILogger&lt;Worker&gt; logger, IMessageQueueService messageQueueService)
     {
-        _httpClient = new HttpClient
-        {
-            BaseAddress = new Uri("https://api.example.com")
-        };
+        _logger = logger;
+        _messageQueueService = messageQueueService;
     }
 
-    public async Task<List<Item>> GetItemsAsync()
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var response = await _httpClient.GetAsync("/api/items");
-        if (response.IsSuccessStatusCode)
+        while (!stoppingToken.IsCancellationRequested)
         {
-            var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<Item>>(content);
+            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
+            try
+            {
+                var message = await _messageQueueService.ReceiveMessageAsync();
+                if (message != null)
+                {
+                    await ProcessMessageAsync(message);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while processing message");
+            }
+
+            await Task.Delay(1000, stoppingToken);
         }
-        return null;
+    }
+
+    private async Task ProcessMessageAsync(Message message)
+    {
+        _logger.LogInformation("Processing message: {messageId}", message.Id);
+        // Lógica de procesamiento del mensaje
+        await Task.Delay(500);  // Simulando procesamiento
+        _logger.LogInformation("Message processed: {messageId}", message.Id);
     }
 }
-                </code></pre>
+                    </code></pre>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="card-title">Continuous Deployment Pipeline</h3>
-                <p class="card-text">Implemented a robust CI/CD pipeline for a multi-tier application using Azure DevOps.</p>
-                <h4 class="h5 mt-3">Features:</h4>
-                <ul>
-                    <li>Automated builds and tests</li>
-                    <li>Infrastructure as Code with Azure Resource Manager</li>
-                    <li>Blue-Green deployment strategy</li>
-                </ul>
-                <h4 class="h5 mt-3">Code Snippet (azure-pipelines.yml):</h4>
-                <pre><code class="language-yaml">
-trigger:
-- main
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+    <!-- Database Projects -->
+    <h3 class="mb-4">Proyectos de Base de Datos</h3>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Sistema Avanzado de Gestión de Base de Datos</h4>
+                    <p class="card-text">Desarrollo de un sistema completo de gestión de base de datos utilizando SQL Server, incluyendo procedimientos almacenados complejos, funciones y consultas optimizadas.</p>
+                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
+                    <p>SQL Server, T-SQL, Stored Procedures, Functions, Indexing</p>
+                    <h5 class="h6 mt-3">Características:</h5>
+                    <ul>
+                        <li>Procedimientos almacenados para análisis de datos</li>
+                        <li>Funciones definidas por el usuario para lógica reutilizable</li>
+                        <li>Consultas optimizadas con indexación apropiada</li>
+                        <li>Implementación de mejores prácticas de seguridad de base de datos</li>
+                    </ul>
+                    <h5 class="h6 mt-3">Ejemplo de Código (Stored Procedure):</h5>
+                    <pre><code class="language-sql">
+CREATE PROCEDURE usp_GetTopCustomers
+    @StartDate DATE,
+    @EndDate DATE,
+    @TopN INT
+AS
+BEGIN
+    SET NOCOUNT ON;
 
-stages:
-- stage: Build
-  jobs:
-  - job: Build
-    pool:
-      vmImage: 'windows-latest'
-    steps:
-    - task: NuGetToolInstaller@1
-    - task: NuGetCommand@2
-      inputs:
-        restoreSolution: '$(solution)'
-    - task: VSBuild@1
-      inputs:
-        solution: '$(solution)'
-        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
-    - task: VSTest@2
-      inputs:
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
-    - task: PublishBuildArtifacts@1
-      inputs:
-        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        artifactName: 'drop'
-        publishLocation: 'Container'
+    -- Validación de entrada
+    IF @StartDate > @EndDate
+    BEGIN
+        THROW 50000, 'La fecha de inicio debe ser anterior o igual a la fecha de fin.', 1;
+        RETURN;
+    END
 
-- stage: Deploy
-  jobs:
-  - deployment: DeployWeb
-    pool:
-      vmImage: 'windows-latest'
-    environment: 'production'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: AzureWebApp@1
-            inputs:
-              azureSubscription: 'Resource Manager Connection'
-              appName: 'your-app-name'
-              appType: 'webApp'
-                </code></pre>
+    -- Usar variable de tabla para mejor rendimiento con conjuntos de datos pequeños
+    DECLARE @TopCustomers TABLE (
+        CustomerID INT,
+        TotalPurchases DECIMAL(18, 2)
+    )
+
+    -- Calcular compras totales para cada cliente
+    INSERT INTO @TopCustomers (CustomerID, TotalPurchases)
+    SELECT 
+        c.CustomerID,
+        SUM(od.Quantity * od.UnitPrice) AS TotalPurchases
+    FROM 
+        Customers c
+        INNER JOIN Orders o ON c.CustomerID = o.CustomerID
+        INNER JOIN [Order Details] od ON o.OrderID = od.OrderID
+    WHERE 
+        o.OrderDate BETWEEN @StartDate AND @EndDate
+    GROUP BY 
+        c.CustomerID
+
+    -- Seleccionar los N mejores clientes
+    SELECT TOP (@TopN)
+        c.CustomerID,
+        c.CompanyName,
+        c.ContactName,
+        tc.TotalPurchases
+    FROM 
+        @TopCustomers tc
+        INNER JOIN Customers c ON tc.CustomerID = c.CustomerID
+    ORDER BY 
+        tc.TotalPurchases DESC
+
+END
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Sistema de Migración y Optimización de Base de Datos</h4>
+                    <p class="card-text">Diseño e implementación de un sistema para migrar datos de una base de datos heredada a una nueva estructura optimizada, incluyendo limpieza de datos y mejora de rendimiento.</p>
+                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
+                    <p>SQL Server, PostgreSQL, ETL, Indexing, Query Optimization</p>
+                    <h5 class="h6 mt-3">Características:</h5>
+                    <ul>
+                        <li>Migración de datos entrediferentes sistemas de gestión de bases de datos</li>
+                        <li>Limpieza y transformación de datos durante la migración</li>
+                        <li>Optimización de esquemas y consultas para mejorar el rendimiento</li>
+                        <li>Implementación de índices y estadísticas para consultas frecuentes</li>
+                    </ul>
+                    <h5 class="h6 mt-3">Ejemplo de Código (Migración y Optimización):</h5>
+                    <pre><code class="language-sql">
+-- Crear tabla optimizada en la nueva base de datos
+CREATE TABLE NewCustomers (
+    CustomerID INT PRIMARY KEY,
+    FirstName NVARCHAR(50),
+    LastName NVARCHAR(50),
+    Email NVARCHAR(100),
+    DateOfBirth DATE,
+    CreatedAt DATETIME2(7) DEFAULT SYSDATETIME(),
+    UpdatedAt DATETIME2(7)
+);
+
+-- Índice para búsquedas frecuentes por email
+CREATE NONCLUSTERED INDEX IX_NewCustomers_Email ON NewCustomers(Email);
+
+-- Migrar y limpiar datos
+INSERT INTO NewCustomers (CustomerID, FirstName, LastName, Email, DateOfBirth)
+SELECT 
+    CustomerID,
+    TRIM(FirstName) AS FirstName,
+    TRIM(LastName) AS LastName,
+    LOWER(TRIM(Email)) AS Email,
+    CASE 
+        WHEN DateOfBirth < '1900-01-01' THEN NULL
+        ELSE DateOfBirth
+    END AS DateOfBirth
+FROM OldCustomers
+WHERE Email IS NOT NULL AND Email != '';
+
+-- Crear una vista materializada para reportes frecuentes
+CREATE VIEW vw_CustomerSummary
+WITH SCHEMABINDING
+AS
+SELECT 
+    c.CustomerID,
+    c.FirstName + ' ' + c.LastName AS FullName,
+    c.Email,
+    COUNT_BIG(*) AS OrderCount,
+    SUM(o.TotalAmount) AS TotalSpent
+FROM 
+    dbo.NewCustomers c
+    INNER JOIN dbo.Orders o ON c.CustomerID = o.CustomerID
+GROUP BY 
+    c.CustomerID, c.FirstName, c.LastName, c.Email;
+
+CREATE UNIQUE CLUSTERED INDEX IDX_vw_CustomerSummary 
+ON vw_CustomerSummary (CustomerID);
+
+-- Procedimiento almacenado para actualizar la vista materializada
+CREATE PROCEDURE usp_RefreshCustomerSummary
+AS
+BEGIN
+    BEGIN TRAN
+    
+    -- Actualizar la vista materializada
+    TRUNCATE TABLE vw_CustomerSummary;
+    
+    INSERT INTO vw_CustomerSummary
+    SELECT 
+        c.CustomerID,
+        c.FirstName + ' ' + c.LastName AS FullName,
+        c.Email,
+        COUNT_BIG(*) AS OrderCount,
+        SUM(o.TotalAmount) AS TotalSpent
+    FROM 
+        dbo.NewCustomers c
+        INNER JOIN dbo.Orders o ON c.CustomerID = o.CustomerID
+    GROUP BY 
+        c.CustomerID, c.FirstName, c.LastName, c.Email;
+    
+    COMMIT TRAN
+END
+                    </code></pre>
+                </div>
             </div>
         </div>
     </div>
-</div>
-        </section>
+</section>
 
         <section id="education" class="mb-5">
             <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
