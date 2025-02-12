@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
     <style>
         :root {
             --primary-color: #0077b5;
@@ -180,6 +181,7 @@
                     <li class="nav-item"><a class="nav-link" href="#summary"><i class="fas fa-user-circle me-1"></i>Summary</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills"><i class="fas fa-cogs me-1"></i>Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience"><i class="fas fa-briefcase me-1"></i>Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects"><i class="fas fa-code-branch me-1"></i>Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#education"><i class="fas fa-graduation-cap me-1"></i>Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
                 </ul>
@@ -372,6 +374,251 @@
             </div>
         </section>
 
+        <section id="projects" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-code-branch"></i> Projects</h2>
+            <div class="row g-4">
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="card-title">ASP.NET Core Microservices</h3>
+                <p class="card-text">Developed a scalable e-commerce platform using microservices architecture with ASP.NET Core.</p>
+                <h4 class="h5 mt-3">Features:</h4>
+                <ul>
+                    <li>API Gateway using Ocelot</li>
+                    <li>Service Discovery with Consul</li>
+                    <li>Message Queue with RabbitMQ</li>
+                    <li>Containerization with Docker</li>
+                </ul>
+                <h4 class="h5 mt-3">Code Snippet:</h4>
+                <pre><code class="language-csharp">
+// API Gateway Configuration
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddOcelot(Configuration);
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        app.UseOcelot().Wait();
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="card-title">Payment Gateway Integration</h3>
+                <p class="card-text">Implemented secure payment processing using various payment gateways in an ASP.NET MVC application.</p>
+                <h4 class="h5 mt-3">Features:</h4>
+                <ul>
+                    <li>Integration with multiple payment providers</li>
+                    <li>Secure handling of sensitive data</li>
+                    <li>Asynchronous payment processing</li>
+                </ul>
+                <h4 class="h5 mt-3">Code Snippet:</h4>
+                <pre><code class="language-csharp">
+public class PaymentController : Controller
+{
+    private readonly IPaymentGateway _paymentGateway;
+
+    public PaymentController(IPaymentGateway paymentGateway)
+    {
+        _paymentGateway = paymentGateway;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ProcessPayment(PaymentModel model)
+    {
+        var result = await _paymentGateway.ProcessPaymentAsync(model);
+        return Json(result);
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="card-title">Multi-Database ORM Implementation</h3>
+                <p class="card-text">Designed a flexible ORM solution supporting SQL Server, MySQL, and PostgreSQL in a single application.</p>
+                <h4 class="h5 mt-3">Features:</h4>
+                <ul>
+                    <li>Database-agnostic repository pattern</li>
+                    <li>Dynamic query building</li>
+                    <li>Support for multiple database providers</li>
+                </ul>
+                <h4 class="h5 mt-3">Code Snippet:</h4>
+                <pre><code class="language-csharp">
+public class GenericRepository<T> : IRepository<T> where T : class
+{
+    private readonly IDbContext _context;
+
+    public GenericRepository(IDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<IEnumerable<T>> GetAllAsync()
+    {
+        return await _context.Set<T>().ToListAsync();
+    }
+
+    // Other CRUD operations...
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="card-title">Cloud-Based Monitoring System</h3>
+                <p class="card-text">Developed a real-time monitoring system for distributed applications using Azure services.</p>
+                <h4 class="h5 mt-3">Features:</h4>
+                <ul>
+                    <li>Real-time data processing with Azure Functions</li>
+                    <li>Data visualization with Power BI</li>
+                    <li>Alerting system using Azure Logic Apps</li>
+                </ul>
+                <h4 class="h5 mt-3">Code Snippet:</h4>
+                <pre><code class="language-csharp">
+public static class MonitoringFunction
+{
+    [FunctionName("ProcessTelemetry")]
+    public static async Task Run(
+        [EventHubTrigger("telemetry", Connection = "EventHubConnection")] EventData[] events,
+        [CosmosDB(
+            databaseName: "MonitoringDB",
+            collectionName: "Telemetry",
+            ConnectionStringSetting = "CosmosDBConnection")]
+        IAsyncCollector<dynamic> documentsOut)
+    {
+        foreach (EventData eventData in events)
+        {
+            var telemetry = JsonConvert.DeserializeObject<TelemetryData>(Encoding.UTF8.GetString(eventData.Body.Array));
+            await documentsOut.AddAsync(telemetry);
+        }
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="card-title">Hybrid Mobile Application</h3>
+                <p class="card-text">Created a cross-platform mobile app using Xamarin.Forms with a ASP.NET Core backend.</p>
+                <h4 class="h5 mt-3">Features:</h4>
+                <ul>
+                    <li>Shared C# codebase for iOS and Android</li>
+                    <li>RESTful API communication</li>
+                    <li>Offline data synchronization</li>
+                </ul>
+                <h4 class="h5 mt-3">Code Snippet:</h4>
+                <pre><code class="language-csharp">
+public class ApiService : IApiService
+{
+    private readonly HttpClient _httpClient;
+
+    public ApiService()
+    {
+        _httpClient = new HttpClient
+        {
+            BaseAddress = new Uri("https://api.example.com")
+        };
+    }
+
+    public async Task<List<Item>> GetItemsAsync()
+    {
+        var response = await _httpClient.GetAsync("/api/items");
+        if (response.IsSuccessStatusCode)
+        {
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<Item>>(content);
+        }
+        return null;
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="card-title">Continuous Deployment Pipeline</h3>
+                <p class="card-text">Implemented a robust CI/CD pipeline for a multi-tier application using Azure DevOps.</p>
+                <h4 class="h5 mt-3">Features:</h4>
+                <ul>
+                    <li>Automated builds and tests</li>
+                    <li>Infrastructure as Code with Azure Resource Manager</li>
+                    <li>Blue-Green deployment strategy</li>
+                </ul>
+                <h4 class="h5 mt-3">Code Snippet (azure-pipelines.yml):</h4>
+                <pre><code class="language-yaml">
+trigger:
+- main
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: NuGetToolInstaller@1
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '$(solution)'
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'
+        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+    - task: VSTest@2
+      inputs:
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        artifactName: 'drop'
+        publishLocation: 'Container'
+
+- stage: Deploy
+  jobs:
+  - deployment: DeployWeb
+    pool:
+      vmImage: 'windows-latest'
+    environment: 'production'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'Resource Manager Connection'
+              appName: 'your-app-name'
+              appType: 'webApp'
+                </code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+        </section>
+
         <section id="education" class="mb-5">
             <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
             <div class="card">
@@ -418,6 +665,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-yaml.min.js"></script>
     <script>
         $(document).ready(function() {
             // Smooth scrolling for anchor links
