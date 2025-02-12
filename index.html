@@ -1,169 +1,432 @@
-<!-- ... (código anterior sin cambios) ... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Gabriel Ahumada - Full-Stack Software Engineer (C# / .NET)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0077b5;
+            --text-color: #333333;
+            --bg-color: #ffffff;
+            --card-bg: #f8fafc;
+            --border-color: #e2e8f0;
+            --hover-color: #005582;
+        }
 
-<section id="skills">
-    <h2 class="section-title"><i class="fas fa-cogs"></i> Professional Skills</h2>
-    <div class="grid">
-        <div class="card">
-            <h3 class="skill-category"><i class="fas fa-server"></i> Backend Development</h3>
-            <ul class="skill-list">
-                <li>C#, VB.NET, ASP.NET, VBScript</li>
-                <li>Microservices, SOA, Scalable Architectures</li>
-                <li>RESTful APIs, Web APIs, JSON, XML, XSL, XSLT</li>
-                <li>Entity Framework, Test-Driven Development (TDD)</li>
-                <li>Application Security, Scalable Solutions</li>
-                <li>.NET Framework, Core.NET</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3 class="skill-category"><i class="fas fa-desktop"></i> Frontend Development (UI/UX)</h3>
-            <ul class="skill-list">
-                <li>ReactJS, Angular, Vue.js, Razor, Knockout.js</li>
-                <li>HTML5, CSS3, Bootstrap</li>
-                <li>JavaScript, TypeScript</li>
-                <li>Responsive Web Design</li>
-                <li>User Experience (UX) & User-Friendly Interfaces</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3 class="skill-category"><i class="fas fa-database"></i> Databases</h3>
-            <ul class="skill-list">
-                <li>SQL Server, PostgreSQL, MySQL, SQLite</li>
-                <li>SQL Queries, Data Modeling, NHibernate</li>
-                <li>Database Design and Optimization</li>
-                <li>Data Access & Web-Based Solutions</li>
-                <li>Relational Databases</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3 class="skill-category"><i class="fas fa-cloud"></i> Cloud Computing & DevOps</h3>
-            <ul class="skill-list">
-                <li>Microsoft Azure (App Services, Storage), AWS</li>
-                <li>Bamboo, Azure DevOps, Git Actions, Jenkins</li>
-                <li>Powershell, Scripting</li>
-                <li>Git, TFS, Version Control</li>
-                <li>CI/CD Pipelines, Docker</li>
-                <li>Cloud Migration</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3 class="skill-category"><i class="fas fa-tasks"></i> Project Management & Methodologies</h3>
-            <ul class="skill-list">
-                <li>Agile Methodologies (Scrum, Kanban)</li>
-                <li>Software Development Life Cycle (SDLC)</li>
-                <li>Team Leadership and Mentoring</li>
-                <li>Estimation and Planning</li>
-                <li>Code Reviews and Best Practices</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3 class="skill-category"><i class="fas fa-tools"></i> Tools & Additional Skills</h3>
-            <ul class="skill-list">
-                <li>Visual Studio, VS Code, IIS Express</li>
-                <li>Swagger, SonarQube</li>
-                <li>Power BI, Reporting Tools</li>
-                <li>Document Management Systems</li>
-                <li>Migration Projects & Startup Solutions</li>
-            </ul>
-        </div>
-    </div>
-</section>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #f8fafc, #ffffff);
+        }
 
-<section id="experience">
-    <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
-    <div class="card">
-        <div class="experience-item">
-            <h3 class="experience-title">Full-Stack Developer</h3>
-            <p class="experience-company">Multi Advanced Technological Solutions (Contractor for Immunotec)</p>
-            <p class="experience-date">August 2023 – Present</p>
-            <ul class="experience-description">
-                <li>Architected and developed scalable and secure backend solutions using C# and Microsoft .NET.</li>
-                <li>Implemented API integration and database design enhancements for optimized performance.</li>
-                <div class="hidden" id="experience-1-more">
-                    <li>Designed cloud-based solutions on Microsoft Azure, enabling high availability and fault tolerance.</li>
-                    <li>Automated CI/CD pipelines using Bamboo, Jenkins, and Azure DevOps.</li>
-                    <li>Led migration projects for legacy systems, optimizing SQL queries and improving database efficiency.</li>
-                    <li>Developed Power BI dashboards for data-driven decision-making.</li>
-                    <li>Created technical documentation including API references, system workflows, and best practices.</li>
-                </div>
-            </ul>
-            <a href="#" class="show-more" onclick="toggleContent('experience-1-more', this); return false;">Ver más</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="experience-item">
-            <h3 class="experience-title">Full-Stack Developer</h3>
-            <p class="experience-company">Immunotec</p>
-            <p class="experience-date">June 2020 – September 2023</p>
-            <ul class="experience-description">
-                <li>Developed secure microservices and RESTful APIs for healthcare platforms.</li>
-                <li>Led cloud migration projects, designing scalable architectures in Microsoft Azure.</li>
-                <div class="hidden" id="experience-2-more">
-                    <li>Optimized SQL queries for improved database performance.</li>
-                    <li>Implemented API security best practices (OAuth, JWT).</li>
-                    <li>Designed Power BI reporting solutions for real-time analytics.</li>
-                    <li>Collaborated with cross-functional teams to deliver high-quality software solutions.</li>
-                    <li>Mentored junior developers and conducted code reviews to maintain code quality.</li>
-                </div>
-            </ul>
-            <a href="#" class="show-more" onclick="toggleContent('experience-2-more', this); return false;">Ver más</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="experience-item">
-            <h3 class="experience-title">Technical Lead and Full-Stack Developer</h3>
-            <p class="experience-company">Tailor Soft</p>
-            <p class="experience-date">July 2018 – June 2020</p>
-            <ul class="experience-description">
-                <li>Developed auction & purchasing platforms with scalable cloud architectures.</li>
-                <li>Led migration projects for transitioning to modern cloud environments.</li>
-                <div class="hidden" id="experience-3-more">
-                    <li>Implemented automation for deployment using Azure Pipelines and Jenkins.</li>
-                    <li>Built data visualization solutions with Power BI and SQL queries.</li>
-                    <li>Managed agile sprints, code reviews, and team mentorship.</li>
-                    <li>Architected and implemented RESTful APIs for seamless third-party integrations.</li>
-                    <li>Optimized application performance and scalability in high-traffic environments.</li>
-                </div>
-            </ul>
-            <a href="#" class="show-more" onclick="toggleContent('experience-3-more', this); return false;">Ver más</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="experience-item">
-            <h3 class="experience-title">Senior Developer</h3>
-            <p class="experience-company">Globo Studio de Colombia S.A.S</p>
-            <p class="experience-date">January 2016 – July 2018</p>
-            <ul class="experience-description">
-                <li>Developed custom ERP solutions for the floral industry.</li>
-                <li>Designed RESTful APIs for seamless third-party integrations.</li>
-                <div class="hidden" id="experience-4-more">
-                    <li>Built responsive, user-friendly web applications using modern front-end frameworks.</li>
-                    <li>Optimized SQL queries for improved database performance.</li>
-                    <li>Implemented security features to protect sensitive user data and transactions.</li>
-                    <li>Collaborated with clients to gather requirements and deliver tailored solutions.</li>
-                </div>
-            </ul>
-            <a href="#" class="show-more" onclick="toggleContent('experience-4-more', this); return false;">Ver más</a>
-        </div>
-    </div>
-    <div class="card">
-        <div class="experience-item">
-            <h3 class="experience-title">Full-Stack Developer and Team Lead</h3>
-            <p class="experience-company">Zeus Tecnologias S.A.</p>
-            <p class="experience-date">April 2005 – December 2015</p>
-            <ul class="experience-description">
-                <li>Developed enterprise solutions for hospitality management systems.</li>
-                <li>Designed cloud-based content management systems for scalability.</li>
-                <div class="hidden" id="experience-5-more">
-                    <li>Implemented security features for protecting user data and sensitive transactions.</li>
-                    <li>Led a team of developers, providing mentorship and technical guidance.</li>
-                    <li>Managed project timelines, resource allocation, and client communications.</li>
-                    <li>Implemented best practices for code quality, testing, and documentation.</li>
-                </div>
-            </ul>
-            <a href="#" class="show-more" onclick="toggleContent('experience-5-more', this); return false;">Ver más</a>
-        </div>
-    </div>
-</section>
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+        }
 
-<!-- ... (código posterior sin cambios) ... -->
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
 
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--hover-color);
+            border-color: var(--hover-color);
+        }
+
+        .skill-category {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .contact-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h1 class="h4 mb-0">Luis Gabriel Ahumada</h1>
+                <p class="small text-muted mb-0">Full-Stack Software Engineer (C# / .NET) | Montreal, QC, Canada</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#summary">Summary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <section id="summary" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-user-circle"></i> Summary</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p>I am a highly motivated and results-driven Senior Software Developer with over 19 years of experience in designing, architecting, and deploying high-performance systems and scalable architectures. My expertise includes Microsoft .NET technologies such as C#, .NET Framework, Core.NET, ASP.NET, and SQL Server, complemented by strong skills in Continuous Integration, Automated Testing, Web Services, and Microsoft Azure cloud computing.</p>
+                    <div class="collapse" id="summary-more">
+                        <p>I excel at leading migration projects, developing cloud-based applications, and implementing best security practices. My proactive approach ensures the successful implementation of robust, data-driven solutions, with expertise in database design, API integration, and front-end development using modern frameworks like ReactJS.</p>
+                        <p>With a proven track record in international projects, I create and implement scalable software solutions that align with business objectives, leveraging DevOps automation and SDLC methodologies.</p>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#summary-more" aria-expanded="false" aria-controls="summary-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Professional Skills</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="skill-category"><i class="fas fa-server"></i> Backend Development</h3>
+                            <ul class="list-unstyled">
+                                <li>C#, VB.NET, ASP.NET, VBScript</li>
+                                <li>Microservices, SOA, Scalable Architectures</li>
+                                <li>RESTful APIs, Web APIs, JSON, XML, XSL, XSLT</li>
+                                <li>Entity Framework, Test-Driven Development (TDD)</li>
+                                <li>Application Security, Scalable Solutions</li>
+                                <li>.NET Framework, Core.NET</li>
+                                <li>ASP.NET Core, ASP.NET MVC</li>
+                                <li>Dependency Injection, SOLID Principles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="skill-category"><i class="fas fa-desktop"></i> Frontend Development</h3>
+                            <ul class="list-unstyled">
+                                <li>ReactJS, Angular, Vue.js, Razor, Knockout.js</li>
+                                <li>HTML5, CSS3, SASS, Bootstrap</li>
+                                <li>JavaScript, TypeScript</li>
+                                <li>Responsive Web Design</li>
+                                <li>User Experience (UX) & User-Friendly Interfaces</li>
+                                <li>Redux, React Hooks</li>
+                                <li>Webpack, Babel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="skill-category"><i class="fas fa-database"></i> Databases</h3>
+                            <ul class="list-unstyled">
+                                <li>SQL Server, PostgreSQL, MySQL, SQLite</li>
+                                <li>SQL Queries, Data Modeling, NHibernate</li>
+                                <li>Database Design and Optimization</li>
+                                <li>Data Access & Web-Based Solutions</li>
+                                <li>Relational Databases</li>
+                                <li>MongoDB, NoSQL databases</li>
+                                <li>ORM (Object-Relational Mapping)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="skill-category"><i class="fas fa-cloud"></i> Cloud Computing & DevOps</h3>
+                            <ul class="list-unstyled">
+                                <li>Microsoft Azure (App Services, Storage), AWS</li>
+                                <li>Bamboo, Azure DevOps, Git Actions, Jenkins</li>
+                                <li>Powershell, Scripting</li>
+                                <li>Git, TFS, Version Control</li>
+                                <li>CI/CD Pipelines, Docker</li>
+                                <li>Cloud Migration</li>
+                                <li>Kubernetes, Container Orchestration</li>
+                                <li>Infrastructure as Code (IaC)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="skill-category"><i class="fas fa-tasks"></i> Project Management & Methodologies</h3>
+                            <ul class="list-unstyled">
+                                <li>Agile Methodologies (Scrum, Kanban)</li>
+                                <li>Software Development Life Cycle (SDLC)</li>
+                                <li>Team Leadership and Mentoring</li>
+                                <li>Estimation and Planning</li>
+                                <li>Code Reviews and Best Practices</li>
+                                <li>Continuous Integration/Continuous Deployment (CI/CD)</li>
+                                <li>Risk Management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="skill-category"><i class="fas fa-tools"></i> Tools & Additional Skills</h3>
+                            <ul class="list-unstyled">
+                                <li>Visual Studio, VS Code, IIS Express</li>
+                                <li>Swagger, SonarQube</li>
+                                <li>Power BI, Reporting Tools</li>
+                                <li>Document Management Systems</li>
+                                <li>Migration Projects & Startup Solutions</li>
+                                <li>RESTful API Design</li>
+                                <li>Performance Optimization</li>
+                                <li>Security Best Practices</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Full-Stack Developer</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Multi Advanced Technological Solutions (Contractor for Immunotec)</h4>
+                    <p class="card-text"><small class="text-muted">August 2023 – Present</small></p>
+                    <ul>
+                        <li>Architected and developed scalable and secure backend solutions using C# and Microsoft .NET.</li>
+                        <li>Implemented API integration and database design enhancements for optimized performance.</li>
+                    </ul>
+                    <div class="collapse" id="experience-1-more">
+                        <ul>
+                            <li>Designed cloud-based solutions on Microsoft Azure, enabling high availability and fault tolerance.</li>
+                            <li>Automated CI/CD pipelines using Bamboo, Jenkins, and Azure DevOps.</li>
+                            <li>Led migration projects for legacy systems, optimizing SQL queries and improving database efficiency.</li>
+                            <li>Developed Power BI dashboards for data-driven decision-making.</li>
+                            <li>Created technical documentation including API references, system workflows, and best practices.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#experience-1-more" aria-expanded="false" aria-controls="experience-1-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Full-Stack Developer</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Immunotec</h4>
+                    <p class="card-text"><small class="text-muted">June 2020 – September 2023</small></p>
+                    <ul>
+                        <li>Developed secure microservices and RESTful APIs for healthcare platforms.</li>
+                        <li>Led cloud migration projects, designing scalable architectures in Microsoft Azure.</li>
+                    </ul>
+                    <div class="collapse" id="experience-2-more">
+                        <ul>
+                            <li>Optimized SQL queries for improved database performance.</li>
+                            <li>Implemented API security best practices (OAuth, JWT).</li>
+                            <li>Designed Power BI reporting solutions for real-time analytics.</li>
+                            <li>Collaborated with cross-functional teams to deliver high-quality software solutions.</li>
+                            <li>Mentored junior developers and conducted code reviews to maintain code quality.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#experience-2-more" aria-expanded="false" aria-controls="experience-2-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Technical Lead and Full-Stack Developer</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Tailor Soft</h4>
+                    <p class="card-text"><small class="text-muted">July 2018 – June 2020</small></p>
+                    <ul>
+                        <li>Developed auction & purchasing platforms with scalable cloud architectures.</li>
+                        <li>Led migration projects for transitioning to modern cloud environments.</li>
+                    </ul>
+                    <div class="collapse" id="experience-3-more">
+                        <ul>
+                            <li>Implemented automation for deployment using Azure Pipelines and Jenkins.</li>
+                            <li>Built data visualization solutions with Power BI and SQL queries.</li>
+                            <li>Managed agile sprints, code reviews, and team mentorship.</li>
+                            <li>Architected and implemented RESTful APIs for seamless third-party integrations.</li>
+                            <li>Optimized application performance and scalability in high-traffic environments.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#experience-3-more" aria-expanded="false" aria-controls="experience-3-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Senior Developer</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Globo Studio de Colombia S.A.S</h4>
+                    <p class="card-text"><small class="text-muted">January 2016 – July 2018</small></p>
+                    <ul>
+                        <li>Developed custom ERP solutions for the floral industry.</li>
+                        <li>Designed RESTful APIs for seamless third-party integrations.</li>
+                    </ul>
+                    <div class="collapse" id="experience-4-more">
+                        <ul>
+                            <li>Built responsive, user-friendly web applications using modern front-end frameworks.</li>
+                            <li>Optimized SQL queries for improved database performance.</li>
+                            <li>Implemented security features to protect sensitive user data and transactions.</li>
+                            <li>Collaborated with clients to gather requirements and deliver tailored solutions.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#experience-4-more" aria-expanded="false" aria-controls="experience-4-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Full-Stack Developer and Team Lead</h3>
+                    <h4 class="card-subtitle mb-2 text-muted">Zeus Tecnologias S.A.</h4>
+                    <p class="card-text"><small class="text-muted">April 2005 – December 2015</small></p>
+                    <ul>
+                        <li>Developed enterprise solutions for hospitality management systems.</li>
+                        <li>Designed cloud-based content management systems for scalability.</li>
+                    </ul>
+                    <div class="collapse" id="experience-5-more">
+                        <ul>
+                            <li>Implemented security features for protecting user data and sensitive transactions.</li>
+                            <li>Led a team of developers, providing mentorship and technical guidance.</li>
+                            <li>Managed project timelines, resource allocation, and client communications.</li>
+                            <li>Implemented best practices for code quality, testing, and documentation.</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#experience-5-more" aria-expanded="false" aria-controls="experience-5-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-code-branch"></i> Projects</h2>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li class="mb-4">
+                            <h3 class="h5">Microservices Architecture with .NET Core</h3>
+                            <p>Developed a scalable microservices architecture using .NET Core, Docker, and Kubernetes. Implemented service discovery, API gateway, and event-driven communication between services.</p>
+                        </li>
+                        <li class="mb-4">
+                            <h3 class="h5">React-based Dashboard Application</h3>
+                            <p>Created a responsive dashboard application using React, Redux, and Material-UI. Integrated with backend APIs and implemented real-time data updates using WebSockets.</p>
+                        </li>
+                        <li class="mb-4">
+                            <h3 class="h5">Azure-based IoT Solution</h3>
+                            <p>Designed and implemented an IoT solution using Azure IoT Hub, Stream Analytics, and Power BI. Developed device simulators and real-time data processing pipelines.</p>
+                        </li>
+                    </ul>
+                    <div class="collapse" id="projects-more">
+                        <ul class="list-unstyled">
+                            <li class="mb-4">
+                                <h3 class="h5">Blockchain-based Supply Chain Management</h3>
+                                <p>Implemented a proof-of-concept supply chain management system using Ethereum blockchain and smart contracts. Developed a web interface for interacting with the blockchain.</p>
+                            </li>
+                            <li class="mb-4">
+                                <h3 class="h5">Machine Learning-based Recommendation Engine</h3>
+                                <p>Created a recommendation engine using machine learning algorithms in Python. Integrated the engine with a .NET Core backend and React frontend for a personalized user experience.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#projects-more" aria-expanded="false" aria-controls="projects-more">
+                        Show More
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="mb-5">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-university me-2"></i> Bachelor's Degree in Software Engineering</li>
+                        <li><i class="fas fa-certificate me-2"></i> Scrum Developer Certification – FCIS</li>
+                        <li><i class="fas fa-code me-2"></i> Programming in C# – Microsoft Community</li>
+                        <li><i class="fas fa-cloud me-2"></i> Microsoft Certified: Azure Developer Associate</li>
+                        <li><i class="fas fa-shield-alt me-2"></i> Certified Information Systems Security Professional (CISSP)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Contact</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="contact-item">
+                                <i class="fas fa-phone me-2"></i>
+                                <span>+1 5146059864</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope me-2"></i>
+                                <a href="mailto:luisgabrielahumada@gmail.com">luisgabrielahumada@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin me-2"></i>
+                                <a href="https://linkedin.com/in/luisgabrielahumada" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github me-2"></i>
+                                <a href="https://github.com/luisgabrielahumada" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.collapse').on('show.bs.collapse', function () {
+                $(this).siblings('.btn').text('Show Less');
+            });
+            $('.collapse').on('hide.bs.collapse', function () {
+                $(this).siblings('.btn').text('Show More');
+            });
+        });
+    </script>
+</body>
+</html>
