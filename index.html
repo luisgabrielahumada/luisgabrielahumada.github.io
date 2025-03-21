@@ -3,887 +3,623 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Gabriel Ahumada - Full-Stack Software Engineer (C# / .NET)</title>
+    <title>Luis Gabriel Ahumada Carmona | Full-Stack Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
     <style>
-        :root {
-            --primary-color: #0077b5;
-            --text-color: #333333;
-            --bg-color: #ffffff;
-            --card-bg: #f8fafc;
-            --border-color: #e2e8f0;
-            --hover-color: #005582;
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-color);
-            line-height: 1.6;
-            background: linear-gradient(to bottom, #f8fafc, #ffffff);
+            background-color: #f5f7fa;
+            color: #111827;
+            line-height: 1.5;
         }
-
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
+        
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
-
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--primary-color);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .navbar-brand span {
-            font-size: 1.2rem;
-        }
-
-        .navbar-brand small {
-            font-weight: 400;
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        .navbar-nav .nav-link {
-            font-weight: 500;
-            color: var(--text-color);
-            transition: color 0.3s ease;
-            padding: 0.5rem 1rem;
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        .navbar-toggler {
-            border: none;
-            padding: 0.25rem 0.75rem;
-        }
-
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
-
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        @media (max-width: 991.98px) {
-            .navbar-collapse {
-                background-color: var(--bg-color);
-                padding: 1rem;
-                border-radius: 0.5rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                margin-top: 0.5rem;
-            }
-        }
-
-        @media (max-width: 575.98px) {
-            .navbar-brand span {
-                font-size: 1rem;
-            }
-            .navbar-brand small {
-                font-size: 0.7rem;
-            }
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card {
-            border: none;
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, #1e3a8a, #1a56db);
+            color: white;
+            padding: 3rem 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--hover-color);
-            border-color: var(--hover-color);
-        }
-
-        .skill-category {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .contact-item {
+        
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
-
-        .contact-item i {
-            color: var(--primary-color);
-            width: 20px;
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
-
-        @media (max-width: 767.98px) {
-            .navbar-brand {
-                font-size: 1.2rem;
+        
+        @media (min-width: 768px) {
+            header h1 {
+                font-size: 2.25rem;
             }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .card {
-                margin-bottom: 1rem;
+            
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
-
-        @media (max-width: 575.98px) {
-            .navbar-brand {
-                font-size: 1rem;
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item svg {
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Main content */
+        main {
+            padding: 2rem 1.5rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e429f;
+            border-bottom: 2px solid #1e429f;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Skills section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
             }
-
-            .section-title {
-                font-size: 1.25rem;
+        }
+        
+        .skill-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-card h3 {
+            font-weight: 700;
+            color: #1a56db;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-card p {
+            color: #4b5563;
+        }
+        
+        .skill-card.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        /* Experience section */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .job-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .job-header {
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .job-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
             }
-
-            .card-body {
-                padding: 1rem;
+        }
+        
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a56db;
+        }
+        
+        .job-company {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #4b5563;
+        }
+        
+        .job-meta {
+            display: flex;
+            align-items: center;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .job-meta {
+                margin-top: 0;
+            }
+        }
+        
+        .job-meta svg {
+            margin-right: 0.25rem;
+        }
+        
+        .job-meta span {
+            margin-right: 0.75rem;
+        }
+        
+        .job-duties {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            color: #4b5563;
+        }
+        
+        .job-duties li {
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Education section */
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .education-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .education-item svg {
+            margin-right: 0.5rem;
+            margin-top: 0.25rem;
+            color: #1a56db;
+            flex-shrink: 0;
+        }
+        
+        .education-item h3 {
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .education-item p {
+            color: #6b7280;
+        }
+        
+        /* Languages section */
+        .language-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .language-item svg {
+            margin-right: 0.5rem;
+            color: #1a56db;
+            flex-shrink: 0;
+        }
+        
+        .language-item span {
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                font-size: 12pt;
+            }
+            
+            header, footer {
+                background: #1e3a8a !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .job-card, .skill-card, .education-card, .language-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #e5e7eb;
+            }
+            
+            a {
+                text-decoration: none;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <!-- Header -->
+    <header>
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <span>Luis Gabriel Ahumada</span>
-                <small class="text-muted">Full-Stack Software Engineer (C# / .NET)</small>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#summary"><i class="fas fa-user-circle me-1"></i>Summary</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills"><i class="fas fa-cogs me-1"></i>Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience"><i class="fas fa-briefcase me-1"></i>Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects"><i class="fas fa-code-branch me-1"></i>Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education"><i class="fas fa-graduation-cap me-1"></i>Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container my-5">
-        <section id="summary" class="mb-5">
-            <h2 class="section-title"><i class="fas fa-user-circle"></i> Summary</h2>
-            <div class="card">
-                <div class="card-body">
-                    <p>I am a highly motivated and results-driven Senior Software Developer with over 19 years of experience in designing, architecting, and deploying high-performance systems and scalable architectures. My expertise includes Microsoft .NET technologies such as C#, .NET Framework, Core.NET, ASP.NET, and SQL Server, complemented by strong skills in Continuous Integration, Automated Testing, Web Services, and Microsoft Azure cloud computing.</p>
-                    <p>I excel at leading migration projects, developing cloud-based applications, and implementing best security practices. My proactive approach ensures the successful implementation of robust, data-driven solutions, with expertise in database design, API integration, and front-end development using modern frameworks like ReactJS.</p>
-                    <p>With a proven track record in international projects, I create and implement scalable software solutions that align with business objectives, leveraging DevOps automation and SDLC methodologies.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="mb-5">
-            <h2 class="section-title"><i class="fas fa-cogs"></i> Professional Skills</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="skill-category"><i class="fas fa-server"></i> Backend Development</h3>
-                            <ul class="list-unstyled">
-                                <li>C#, VB.NET, ASP.NET, VBScript</li>
-                                <li>Microservices, SOA, Scalable Architectures</li>
-                                <li>RESTful APIs, Web APIs, JSON, XML, XSL, XSLT</li>
-                                <li>Entity Framework, Test-Driven Development (TDD)</li>
-                                <li>Application Security, Scalable Solutions</li>
-                                <li>.NET Framework, Core.NET</li>
-                                <li>Worker Services, Background Processing</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="skill-category"><i class="fas fa-desktop"></i> Frontend Development</h3>
-                            <ul class="list-unstyled">
-                                <li>ReactJS, Angular, Vue.js</li>
-                                <li>ASP.NET MVC with Razor</li>
-                                <li>HTML5, CSS3, JavaScript, jQuery</li>
-                                <li>Bootstrap, Responsive Web Design</li>
-                                <li>TypeScript, Knockout.js</li>
-                                <li>User Experience (UX) & User-Friendly Interfaces</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="skill-category"><i class="fas fa-database"></i> Databases</h3>
-                            <ul class="list-unstyled">
-                                <li>SQL Server, PostgreSQL, MySQL, SQLite</li>
-                                <li>SQL Queries, Data Modeling, NHibernate</li>
-                                <li>Database Design and Optimization</li>
-                                <li>Data Access & Web-Based Solutions</li>
-                                <li>Relational Databases</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="skill-category"><i class="fas fa-cloud"></i> Cloud Computing & DevOps</h3>
-                            <ul class="list-unstyled">
-                                <li>Microsoft Azure (App Services, Storage), AWS</li>
-                                <li>CI/CD: Bamboo, Azure DevOps, Git Actions, Jenkins</li>
-                                <li>Automation: Powershell, Scripting</li>
-                                <li>Version Control: Git, TFS</li>
-                                <li>Development Tools: Visual Studio, IIS Express, Swagger, SonarQube, Docker</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="skill-category"><i class="fas fa-tools"></i> Additional Expertise</h3>
-                            <ul class="list-unstyled">
-                                <li>Document Management & Reporting Tools (Power BI)</li>
-                                <li>Migration Projects & Startup Software Solutions</li>
-                                <li>Software Development Life Cycle (SDLC)</li>
-                                <li>Writing & Documentation</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h3 class="skill-category"><i class="fas fa-users"></i> Soft Skills</h3>
-                            <ul class="list-unstyled">
-                                <li>Proactive Approach, Problem-Solving</li>
-                                <li>Leadership, Team Collaboration</li>
-                                <li>Verbal & Written Communication</li>
-                                <li>Attention to Detail, Organization</li>
-                                <li>Adaptability and Discipline</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="mb-5">
-            <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+            <h1>LUIS GABRIEL AHUMADA CARMONA</h1>
             
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3 class="card-title">Full-Stack Developer</h3>
-                    <h4 class="card-subtitle mb-2 text-muted">Multi Advanced Technological Solutions (Contractor for Immunotec)</h4>
-                    <p class="card-text"><small class="text-muted">Montreal, QC | August 2023 – Present</small></p>
-                    <ul>
-                        <li>Architected and developed scalable and secure backend solutions using C# and Microsoft .NET.</li>
-                        <li>Implemented API integration and database design enhancements for optimized performance.</li>
-                        <li>Designed cloud-based solutions on Microsoft Azure, enabling high availability and fault tolerance.</li>
-                        <li>Automated CI/CD pipelines using Bamboo, Jenkins, and Azure DevOps.</li>
-                        <li>Led migration projects for legacy systems, optimizing SQL queries and improving database efficiency.</li>
-                        <li>Developed Power BI dashboards for data-driven decision-making.</li>
-                        <li>Created technical documentation including API references, system workflows, and best practices.</li>
-                    </ul>
-                    <p><strong>Technologies:</strong> C#, Razor, ReactJS, Angular, Vue.js, SQL Server, Microsoft Azure, Power BI, Swagger, Docker</p>
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        </svg>
+                        <a href="mailto:luisgabrielahumada@gmail.com">luisgabrielahumada@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <a href="tel:+15146059864">+1 514 605 9864</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Montreal - QC</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect width="4" height="12" x="2" y="9"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        <a href="https://www.linkedin.com/in/luis-gabriel-ahumada/" target="_blank" rel="noopener noreferrer">
+                            linkedin.com/in/luis-gabriel-ahumada
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                        </svg>
+                        <a href="https://github.com/luisgabrielahumada" target="_blank" rel="noopener noreferrer">
+                            github.com/luisgabrielahumada
+                        </a>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                            <path d="M2 12h20"></path>
+                        </svg>
+                        <span>Work Authorization: Open Work Permit – No LMIA required</span>
+                    </div>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3 class="card-title">Full-Stack Developer</h3>
-                    <h4 class="card-subtitle mb-2 text-muted">Immunotec</h4>
-                    <p class="card-text"><small class="text-muted">Medellín, Colombia | June 2020 – September 2023</small></p>
-                    <ul>
-                        <li>Developed secure microservices and RESTful APIs for healthcare platforms.</li>
-                        <li>Led cloud migration projects, designing scalable architectures in Microsoft Azure.</li>
-                        <li>Optimized SQL queries for improved database performance.</li>
-                        <li>Implemented API security best practices (OAuth, JWT).</li>
-                        <li>Designed Power BI reporting solutions for real-time analytics.</li>
-                    </ul>
-                    <p><strong>Technologies:</strong> C#, SQL Server, Microsoft Azure Web Apps, Azure Functions, Azure Storage, CI/CD Pipelines</p>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Professional Summary -->
+        <section>
+            <h2>PROFESSIONAL SUMMARY</h2>
+            <p>
+                Senior Full-Stack Developer with 19+ years of experience designing and implementing scalable .NET and 
+                Azure solutions. Proven expertise in API development, microservices, and DevOps automation, reducing 
+                deployment times by 40% and improving system uptime to 99.9%. Strong ability to lead teams, optimize 
+                system performance, and drive digital transformation. Seeking to apply my expertise in a dynamic and 
+                innovative Canadian company.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2>TECHNICAL SKILLS</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>BACKEND DEVELOPMENT</h3>
+                    <p>C#, .NET Core, ASP.NET, Microservices, RESTful APIs, Entity Framework, Dapper, NHibernate</p>
                 </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3 class="card-title">Technical Lead and Full-Stack Developer</h3>
-                    <h4 class="card-subtitle mb-2 text-muted">Tailor Soft</h4>
-                    <p class="card-text"><small class="text-muted">Medellín, Colombia | July 2018 – June 2020</small></p>
-                    <ul>
-                        <li>Developed auction & purchasing platforms with scalable cloud architectures.</li>
-                        <li>Led migration projects for transitioning to modern cloud environments.</li>
-                        <li>Implemented automation for deployment using Azure Pipelines and Jenkins.</li>
-                        <li>Built data visualization solutions with Power BI and SQL queries.</li>
-                        <li>Managed agile sprints, code reviews, and team mentorship.</li>
-                    </ul>
-                    <p><strong>Technologies:</strong> C#, Microsoft Azure Web Apps, Azure Functions, SQL Server, CosmosDB, Swagger</p>
+                <div class="skill-card">
+                    <h3>FRONTEND DEVELOPMENT</h3>
+                    <p>React, Angular, Vue.js, Blazor, Razor, JavaScript, TypeScript, Bootstrap</p>
                 </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3 class="card-title">Senior Developer</h3>
-                    <h4 class="card-subtitle mb-2 text-muted">Globo Studio de Colombia S.A.S</h4>
-                    <p class="card-text"><small class="text-muted">Medellín, Colombia | January 2016 – July 2018</small></p>
-                    <ul>
-                        <li>Developed custom ERP solutions for the floral industry.</li>
-                        <li>Designed RESTful APIs for seamless third-party integrations.</li>
-                        <li>Built responsive, user-friendly web applications using modern front-end frameworks.</li>
-                        <li>Optimized SQL queries for improved database performance.</li>
-                    </ul>
-                    <p><strong>Technologies:</strong> C#, SQL Server, CosmosDB, MySQL, ReactJS, Web Services</p>
+                <div class="skill-card">
+                    <h3>DATABASES</h3>
+                    <p>SQL Server, PostgreSQL, MySQL, CosmosDB, Query Optimization</p>
                 </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h3 class="card-title">Full-Stack Developer and Team Lead</h3>
-                    <h4 class="card-subtitle mb-2 text-muted">Zeus Tecnologias S.A.</h4>
-                    <p class="card-text"><small class="text-muted">Cartagena, Colombia | April 2005 – December 2015</small></p>
-                    <ul>
-                        <li>Developed enterprise solutions for hospitality management systems.</li>
-                        <li>Designed cloud-based content management systems for scalability.</li>
-                        <li>Implemented security features for protecting user data and sensitive transactions.</li>
-                    </ul>
-                    <p><strong>Technologies:</strong> C#, Microsoft .NET Framework, SQL Server, SOAP, XSLT, IIS, Powershell</p>
+                <div class="skill-card">
+                    <h3>CLOUD & DEVOPS</h3>
+                    <p>Azure, Azure DevOps, CI/CD Pipelines, Docker, Kubernetes, GitHub Actions, SonarQube</p>
+                </div>
+                <div class="skill-card full-width">
+                    <h3>TOOLS & VERSION CONTROL</h3>
+                    <p>Git, TFS, Visual Studio, PowerShell, Swagger</p>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="mb-5">
-    <h2 class="section-title"><i class="fas fa-code-branch"></i> Proyectos</h2>
-    
-    <!-- Front-end Projects -->
-    <h3 class="mb-4">Proyectos Front-end</h3>
-    <div class="row g-4 mb-5">
-        <div class="col-md-6">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Aplicación React con Integración de API</h4>
-                    <p class="card-text">Desarrollo de una aplicación de panel de control utilizando React y Redux para gestión de estado, con integración de APIs RESTful.</p>
-                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
-                    <p>React, Redux, HTML5, CSS3, Bootstrap</p>
-                    <h5 class="h6 mt-3">Características:</h5>
-                    <ul>
-                        <li>Componentes React reutilizables</li>
-                        <li>Gestión de estado con Redux</li>
-                        <li>Diseño responsivo con Bootstrap</li>
-                        <li>Integración con APIs RESTful</li>
-                    </ul>
-                    <h5 class="h6 mt-3">Ejemplo de Código (Componente React):</h5>
-                    <pre><code class="language-jsx">
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchData } from '../redux/actions/dataActions';
-
-const Dashboard = () => {
-    const dispatch = useDispatch();
-    const { data, loading, error } = useSelector(state => state.data);
-
-    useEffect(() => {
-        dispatch(fetchData());
-    }, [dispatch]);
-
-    if (loading) return &lt;div&gt;Cargando...&lt;/div&gt;;
-    if (error) return &lt;div&gt;Error: {error}&lt;/div&gt;;
-
-    return (
-        &lt;div className="dashboard"&gt;
-            &lt;h2&gt;Panel de Control&lt;/h2&gt;
-            &lt;div className="row"&gt;
-                {data.map(item => (
-                    &lt;div key={item.id} className="col-md-4 mb-4"&gt;
-                        &lt;div className="card"&gt;
-                            &lt;div className="card-body"&gt;
-                                &lt;h5 className="card-title"&gt;{item.title}&lt;/h5&gt;
-                                &lt;p className="card-text"&gt;{item.description}&lt;/p&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt;
-                ))}
-            &lt;/div&gt;
-        &lt;/div&gt;
-    );
-};
-
-export default Dashboard;
-                    </code></pre>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Aplicación Vue.js con Gestión de Estado</h4>
-                    <p class="card-text">Desarrollo de una aplicación de comercio electrónico utilizando Vue.js y Vuex para la gestión del estado de la aplicación.</p>
-                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
-                    <p>Vue.js, Vuex, HTML5, CSS3, Tailwind CSS</p>
-                    <h5 class="h6 mt-3">Características:</h5>
-                    <ul>
-                        <li>Componentes Vue.js reactivos</li>
-                        <li>Gestión de estado centralizada con Vuex</li>
-                        <li>Diseño responsivo con Tailwind CSS</li>
-                        <li>Enrutamiento con Vue Router</li>
-                    </ul>
-                    <h5 class="h6 mt-3">Ejemplo de Código (Componente Vue):</h5>
-                    <pre><code class="language-html">
-&lt;template&gt;
-  &lt;div class="product-list"&gt;
-    &lt;h2 class="text-2xl font-bold mb-4"&gt;Nuestros Productos&lt;/h2&gt;
-    &lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"&gt;
-      &lt;div v-for="product in products" :key="product.id" class="card"&gt;
-        &lt;img :src="product.image" :alt="product.name" class="w-full h-48 object-cover"&gt;
-        &lt;div class="p-4"&gt;
-          &lt;h3 class="text-lg font-semibold"&gt;{{ product.name }}&lt;/h3&gt;
-          &lt;p class="text-gray-600"&gt;{{ product.price | currency }}&lt;/p&gt;
-          &lt;button @click="addToCart(product)" class="btn btn-primary mt-2"&gt;
-            Añadir al Carrito
-          &lt;/button&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-import { mapState, mapActions } from 'vuex';
-
-export default {
-  computed: {
-    ...mapState(['products'])
-  },
-  methods: {
-    ...mapActions(['addToCart'])
-  },
-  filters: {
-    currency(value) {
-      return `$${value.toFixed(2)}`;
-    }
-  }
-}
-&lt;/script&gt;
-                    </code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Back-end Projects -->
-    <h3 class="mb-4">Proyectos Back-end</h3>
-    <div class="row g-4 mb-5">
-        <div class="col-md-6">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">API RESTful con ASP.NET Core</h4>
-                    <p class="card-text">Desarrollo de una API RESTful robusta utilizando ASP.NET Core, implementando autenticación JWT y documentación con Swagger.</p>
-                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
-                    <p>C#, ASP.NET Core, Entity Framework Core, SQL Server</p>
-                    <h5 class="h6 mt-3">Características:</h5>
-                    <ul>
-                        <li>Arquitectura de microservicios</li>
-                        <li>Autenticación y autorización con JWT</li>
-                        <li>Documentación de API con Swagger</li>
-                        <li>Implementación de patrones Repository y Unit of Work</li>
-                    </ul>
-                    <h5 class="h6 mt-3">Ejemplo de Código (Controlador ASP.NET Core):</h5>
-                    <pre><code class="language-csharp">
-[ApiController]
-[Route("api/[controller]")]
-public class ProductsController : ControllerBase
-{
-    private readonly IProductService _productService;
-    private readonly ILogger&lt;ProductsController&gt; _logger;
-
-    public ProductsController(IProductService productService, ILogger&lt;ProductsController&gt; logger)
-    {
-        _productService = productService;
-        _logger = logger;
-    }
-
-    [HttpGet]
-    public async Task&lt;ActionResult&lt;IEnumerable&lt;ProductDto&gt;&gt;&gt; GetProducts([FromQuery] ProductFilterDto filter)
-    {
-        try
-        {
-            var products = await _productService.GetProductsAsync(filter);
-            return Ok(products);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error occurred while fetching products");
-            return StatusCode(500, "An error occurred while processing your request.");
-        }
-    }
-
-    [HttpPost]
-    [Authorize(Roles = "Admin")]
-    public async Task&lt;ActionResult&lt;ProductDto&gt;&gt; CreateProduct(CreateProductDto productDto)
-    {
-        try
-        {
-            var createdProduct = await _productService.CreateProductAsync(productDto);
-            return CreatedAtAction(nameof(GetProduct), new { id = createdProduct.Id }, createdProduct);
-        }
-        catch (ValidationException ex)
-        {
-            return BadRequest(ex.Message);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error occurred while creating a product");
-            return StatusCode(500, "An error occurred while processing your request.");
-        }
-    }
-
-    // Otros métodos CRUD...
-}
-                    </code></pre>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Servicio de Procesamiento en Segundo Plano</h4>
-                    <p class="card-text">Implementación de un servicio de procesamiento en segundo plano utilizando Worker Services de .NET Core para tareas programadas y procesamiento de colas.</p>
-                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
-                    <p>C#, .NET Core Worker Services, RabbitMQ</p>
-                    <h5 class="h6 mt-3">Características:</h5>
-                    <ul>
-                        <li>Procesamiento asíncrono de tareas</li>
-                        <li>Integración con sistema de colas RabbitMQ</li>
-                        <li>Manejo de errores y reintentos</li>
-                        <li>Logging y monitoreo</li>
-                    </ul>
-                    <h5 class="h6 mt-3">Ejemplo de Código (Worker Service):</h5>
-                    <pre><code class="language-csharp">
-public class Worker : BackgroundService
-{
-    private readonly ILogger&lt;Worker&gt; _logger;
-    private readonly IMessageQueueService _messageQueueService;
-
-    public Worker(ILogger&lt;Worker&gt; logger, IMessageQueueService messageQueueService)
-    {
-        _logger = logger;
-        _messageQueueService = messageQueueService;
-    }
-
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        while (!stoppingToken.IsCancellationRequested)
-        {
-            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-
-            try
-            {
-                var message = await _messageQueueService.ReceiveMessageAsync();
-                if (message != null)
-                {
-                    await ProcessMessageAsync(message);
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while processing message");
-            }
-
-            await Task.Delay(1000, stoppingToken);
-        }
-    }
-
-    private async Task ProcessMessageAsync(Message message)
-    {
-        _logger.LogInformation("Processing message: {messageId}", message.Id);
-        // Lógica de procesamiento del mensaje
-        await Task.Delay(500);  // Simulando procesamiento
-        _logger.LogInformation("Message processed: {messageId}", message.Id);
-    }
-}
-                    </code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Database Projects -->
-    <h3 class="mb-4">Proyectos de Base de Datos</h3>
-    <div class="row g-4">
-        <div class="col-md-6">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Sistema Avanzado de Gestión de Base de Datos</h4>
-                    <p class="card-text">Desarrollo de un sistema completo de gestión de base de datos utilizando SQL Server, incluyendo procedimientos almacenados complejos, funciones y consultas optimizadas.</p>
-                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
-                    <p>SQL Server, T-SQL, Stored Procedures, Functions, Indexing</p>
-                    <h5 class="h6 mt-3">Características:</h5>
-                    <ul>
-                        <li>Procedimientos almacenados para análisis de datos</li>
-                        <li>Funciones definidas por el usuario para lógica reutilizable</li>
-                        <li>Consultas optimizadas con indexación apropiada</li>
-                        <li>Implementación de mejores prácticas de seguridad de base de datos</li>
-                    </ul>
-                    <h5 class="h6 mt-3">Ejemplo de Código (Stored Procedure):</h5>
-                    <pre><code class="language-sql">
-CREATE PROCEDURE usp_GetTopCustomers
-    @StartDate DATE,
-    @EndDate DATE,
-    @TopN INT
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    -- Validación de entrada
-    IF @StartDate > @EndDate
-    BEGIN
-        THROW 50000, 'La fecha de inicio debe ser anterior o igual a la fecha de fin.', 1;
-        RETURN;
-    END
-
-    -- Usar variable de tabla para mejor rendimiento con conjuntos de datos pequeños
-    DECLARE @TopCustomers TABLE (
-        CustomerID INT,
-        TotalPurchases DECIMAL(18, 2)
-    )
-
-    -- Calcular compras totales para cada cliente
-    INSERT INTO @TopCustomers (CustomerID, TotalPurchases)
-    SELECT 
-        c.CustomerID,
-        SUM(od.Quantity * od.UnitPrice) AS TotalPurchases
-    FROM 
-        Customers c
-        INNER JOIN Orders o ON c.CustomerID = o.CustomerID
-        INNER JOIN [Order Details] od ON o.OrderID = od.OrderID
-    WHERE 
-        o.OrderDate BETWEEN @StartDate AND @EndDate
-    GROUP BY 
-        c.CustomerID
-
-    -- Seleccionar los N mejores clientes
-    SELECT TOP (@TopN)
-        c.CustomerID,
-        c.CompanyName,
-        c.ContactName,
-        tc.TotalPurchases
-    FROM 
-        @TopCustomers tc
-        INNER JOIN Customers c ON tc.CustomerID = c.CustomerID
-    ORDER BY 
-        tc.TotalPurchases DESC
-
-END
-                    </code></pre>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h4 class="card-title">Sistema de Migración y Optimización de Base de Datos</h4>
-                    <p class="card-text">Diseño e implementación de un sistema para migrar datos de una base de datos heredada a una nueva estructura optimizada, incluyendo limpieza de datos y mejora de rendimiento.</p>
-                    <h5 class="h6 mt-3">Tecnologías utilizadas:</h5>
-                    <p>SQL Server, PostgreSQL, ETL, Indexing, Query Optimization</p>
-                    <h5 class="h6 mt-3">Características:</h5>
-                    <ul>
-                        <li>Migración de datos entrediferentes sistemas de gestión de bases de datos</li>
-                        <li>Limpieza y transformación de datos durante la migración</li>
-                        <li>Optimización de esquemas y consultas para mejorar el rendimiento</li>
-                        <li>Implementación de índices y estadísticas para consultas frecuentes</li>
-                    </ul>
-                    <h5 class="h6 mt-3">Ejemplo de Código (Migración y Optimización):</h5>
-                    <pre><code class="language-sql">
--- Crear tabla optimizada en la nueva base de datos
-CREATE TABLE NewCustomers (
-    CustomerID INT PRIMARY KEY,
-    FirstName NVARCHAR(50),
-    LastName NVARCHAR(50),
-    Email NVARCHAR(100),
-    DateOfBirth DATE,
-    CreatedAt DATETIME2(7) DEFAULT SYSDATETIME(),
-    UpdatedAt DATETIME2(7)
-);
-
--- Índice para búsquedas frecuentes por email
-CREATE NONCLUSTERED INDEX IX_NewCustomers_Email ON NewCustomers(Email);
-
--- Migrar y limpiar datos
-INSERT INTO NewCustomers (CustomerID, FirstName, LastName, Email, DateOfBirth)
-SELECT 
-    CustomerID,
-    TRIM(FirstName) AS FirstName,
-    TRIM(LastName) AS LastName,
-    LOWER(TRIM(Email)) AS Email,
-    CASE 
-        WHEN DateOfBirth < '1900-01-01' THEN NULL
-        ELSE DateOfBirth
-    END AS DateOfBirth
-FROM OldCustomers
-WHERE Email IS NOT NULL AND Email != '';
-
--- Crear una vista materializada para reportes frecuentes
-CREATE VIEW vw_CustomerSummary
-WITH SCHEMABINDING
-AS
-SELECT 
-    c.CustomerID,
-    c.FirstName + ' ' + c.LastName AS FullName,
-    c.Email,
-    COUNT_BIG(*) AS OrderCount,
-    SUM(o.TotalAmount) AS TotalSpent
-FROM 
-    dbo.NewCustomers c
-    INNER JOIN dbo.Orders o ON c.CustomerID = o.CustomerID
-GROUP BY 
-    c.CustomerID, c.FirstName, c.LastName, c.Email;
-
-CREATE UNIQUE CLUSTERED INDEX IDX_vw_CustomerSummary 
-ON vw_CustomerSummary (CustomerID);
-
--- Procedimiento almacenado para actualizar la vista materializada
-CREATE PROCEDURE usp_RefreshCustomerSummary
-AS
-BEGIN
-    BEGIN TRAN
-    
-    -- Actualizar la vista materializada
-    TRUNCATE TABLE vw_CustomerSummary;
-    
-    INSERT INTO vw_CustomerSummary
-    SELECT 
-        c.CustomerID,
-        c.FirstName + ' ' + c.LastName AS FullName,
-        c.Email,
-        COUNT_BIG(*) AS OrderCount,
-        SUM(o.TotalAmount) AS TotalSpent
-    FROM 
-        dbo.NewCustomers c
-        INNER JOIN dbo.Orders o ON c.CustomerID = o.CustomerID
-    GROUP BY 
-        c.CustomerID, c.FirstName, c.LastName, c.Email;
-    
-    COMMIT TRAN
-END
-                    </code></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-        <section id="education" class="mb-5">
-            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Certifications</h2>
-            <div class="card">
-                <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-university me-2"></i> Bachelor's Degree in Software Engineering</li>
-                        <li><i class="fas fa-certificate me-2"></i> Scrum Developer Certification – FCIS</li>
-                        <li><i class="fas fa-code me-2"></i> Programming in C# – Microsoft Community</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2 class="section-title"><i class="fas fa-envelope"></i> Contact</h2>
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="contact-item">
-                                <i class="fas fa-phone me-2"></i>
-                                <span>+1 5146059864</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope me-2"></i>
-                                <a href="mailto:luisgabrielahumada@gmail.com">luisgabrielahumada@gmail.com</a>
-                            </div>
+        <!-- Professional Experience -->
+        <section>
+            <h2>PROFESSIONAL EXPERIENCE</h2>
+            
+            <div class="experience-list">
+                <!-- Job 1 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">FULL-STACK DEVELOPER (CONTRACTOR)</div>
+                            <div class="job-company">MULTI ADVANCED TECHNOLOGICAL SOLUTIONS</div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="contact-item">
-                                <i class="fas fa-globe me-2"></i>
-                                <span>Languages: Fluent in English, Spanish</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-file-alt me-2"></i>
-                                <span>Work Permit: Open Work Permit in Canada (valid until December 2025)</span>
-                            </div>
+                        <div class="job-meta">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>MONTREAL, QC</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" x2="16" y1="2" y2="6"></line>
+                                <line x1="8" x2="8" y1="2" y2="6"></line>
+                                <line x1="3" x2="21" y1="10" y2="10"></line>
+                            </svg>
+                            <span>08/2023 – 01/2025</span>
                         </div>
                     </div>
+                    <ul class="job-duties">
+                        <li>Provided full-stack development services to Immunotec Canada under contract.</li>
+                        <li>Developed and deployed scalable backend solutions using C# and Microsoft .NET.</li>
+                        <li>Led API integration and database optimization, reducing query execution time by 35%.</li>
+                        <li>Implemented cloud-based solutions on Microsoft Azure, improving system uptime to 99.9%.</li>
+                        <li>Automated CI/CD pipelines using Azure DevOps and Bamboo, reducing deployment time by 40%.</li>
+                        <li>Created comprehensive technical documentation, improving onboarding efficiency by 30%.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">FULL-STACK DEVELOPER</div>
+                            <div class="job-company">IMMUNOTEC</div>
+                        </div>
+                        <div class="job-meta">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>MEDELLÍN, COLOMBIA</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" x2="16" y1="2" y2="6"></line>
+                                <line x1="8" x2="8" y1="2" y2="6"></line>
+                                <line x1="3" x2="21" y1="10" y2="10"></line>
+                            </svg>
+                            <span>06/2020 – 09/2023</span>
+                        </div>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Designed and implemented secure microservices and RESTful APIs for healthcare platforms.</li>
+                        <li>Led cloud migration projects, optimizing performance with Azure Functions and Azure Storage.</li>
+                        <li>Improved SQL database performance, reducing query execution times by 50%.</li>
+                        <li>Built Power BI dashboards for real-time analytics, enhancing business insights.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">TECHNICAL LEAD & FULL-STACK DEVELOPER</div>
+                            <div class="job-company">TAILOR SOFT</div>
+                        </div>
+                        <div class="job-meta">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>MEDELLÍN, COLOMBIA</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" x2="16" y1="2" y2="6"></line>
+                                <line x1="8" x2="8" y1="2" y2="6"></line>
+                                <line x1="3" x2="21" y1="10" y2="10"></line>
+                            </svg>
+                            <span>07/2018 – 06/2020</span>
+                        </div>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Developed scalable auction & purchasing platforms with cloud-based architectures.</li>
+                        <li>Implemented Azure Pipelines and Jenkins for automated deployments, reducing downtime by 60%.</li>
+                        <li>Built data visualization tools using Power BI and SQL queries.</li>
+                        <li>Managed agile sprints, code reviews, and team mentorship, improving productivity by 25%.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">SENIOR DEVELOPER</div>
+                            <div class="job-company">GLOBO STUDIO DE COLOMBIA S.A.S</div>
+                        </div>
+                        <div class="job-meta">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>MEDELLÍN, COLOMBIA</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" x2="16" y1="2" y2="6"></line>
+                                <line x1="8" x2="8" y1="2" y2="6"></line>
+                                <line x1="3" x2="21" y1="10" y2="10"></line>
+                            </svg>
+                            <span>01/2016 – 07/2018</span>
+                        </div>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Designed and developed RESTful APIs for third-party integrations, improving system interoperability.</li>
+                        <li>Built responsive web applications with React and modern front-end frameworks.</li>
+                        <li>Optimized SQL queries, reducing database load and improving response times by 40%.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 5 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">FULL-STACK DEVELOPER & TEAM LEAD</div>
+                            <div class="job-company">ZEUS TECNOLOGÍAS S.A.</div>
+                        </div>
+                        <div class="job-meta">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>CARTAGENA, COLOMBIA</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" x2="16" y1="2" y2="6"></line>
+                                <line x1="8" x2="8" y1="2" y2="6"></line>
+                                <line x1="3" x2="21" y1="10" y2="10"></line>
+                            </svg>
+                            <span>04/2005 – 12/2015</span>
+                        </div>
+                    </div>
+                    <ul class="job-duties">
+                        <li>Developed enterprise solutions for hospitality management systems.</li>
+                        <li>Designed cloud-based content management systems, improving scalability and security.</li>
+                        <li>Implemented advanced security protocols, reducing cybersecurity incidents by 35%.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section>
+            <h2>EDUCATION & CERTIFICATIONS</h2>
+            <div class="education-list">
+                <div class="education-card">
+                    <div class="education-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                        <div>
+                            <h3>Bachelor's Degree in Software Engineering</h3>
+                            <p>Cartagena, Colombia | 03/01/05</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <div>
+                            <h3>Scrum Developer Certification, FCIS</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <div>
+                            <h3>Programming in C#, Microsoft Community</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+        <section>
+            <h2>LANGUAGES</h2>
+            <div class="language-card">
+                <div class="language-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                        <path d="M2 12h20"></path>
+                    </svg>
+                    <span>English (Fluent), Spanish (Native)</span>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-csharp.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-yaml.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Smooth scrolling for anchor links
-            $('a[href^="#"]').on('click', function(event) {
-                var target = $(this.getAttribute('href'));
-                if( target.length ) {
-                    event.preventDefault();
-                    $('html, body').stop().animate({
-                        scrollTop: target.offset().top - 70
-                    }, 1000);
-                }
-            });
-
-            // Highlight active nav item
-            $(window).on('scroll', function() {
-                var scrollDistance = $(window).scrollTop();
-                $('section').each(function(i) {
-                    if ($(this).position().top <= scrollDistance + 100) {
-                        $('.navbar-nav a.active').removeClass('active');
-                        $('.navbar-nav a').eq(i).addClass('active');
-                    }
-                });
-            }).scroll();
-
-            // Collapse navbar on link click (mobile)
-            $('.navbar-nav>li>a').on('click', function(){
-                $('.navbar-collapse').collapse('hide');
-            });
-
-            // Change navbar background on scroll
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 50) {
-                    $('.navbar').css('background-color', 'rgba(255, 255, 255, 0.98)');
-                } else {
-                    $('.navbar').css('background-color', 'rgba(255, 255, 255, 0.95)');
-                }
-            });
-        });
-    </script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Luis Gabriel Ahumada Carmona | Full-Stack Developer</p>
+        </div>
+    </footer>
 </body>
 </html>
-
